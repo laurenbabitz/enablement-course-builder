@@ -1442,11 +1442,6 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
         <!-- BLOCKS -->
         <div ref="blockListRef" class="block-list"
              @dragover.prevent @drop.prevent>
-          <div class="insert-zone" @click.stop="addBlockAt(0)" title="Add block here">
-            <div class="insert-zone-line"></div>
-            <div class="insert-zone-btn">+</div>
-            <div class="insert-zone-line"></div>
-          </div>
           <div v-if="dragType" class="drop-zone" :class="{over:dropIdx===0}"
                @dragenter.prevent="dropIdx=0" @dragleave="dropIdx=null" @drop.prevent="dropBlock(0)"></div>
           <template v-for="(block,bi) in curLesson.blocks" :key="block.id">
@@ -1998,7 +1993,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
               </div>
             </div><!-- /block-inner -->
           </div><!-- /block-wrap -->
-          <div class="insert-zone" @click.stop="addBlockAt(bi+1)" title="Add block here">
+          <div v-if="bi < curLesson.blocks.length - 1" class="insert-zone" @click.stop="addBlockAt(bi+1)">
             <div class="insert-zone-line"></div>
             <div class="insert-zone-btn">+</div>
             <div class="insert-zone-line"></div>
