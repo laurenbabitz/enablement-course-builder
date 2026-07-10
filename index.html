@@ -14,10 +14,16 @@
 :root{
   --blue:#406EF1;--blue-d:#2D56D9;--blue-l:#BDCCFB;--blue-ll:#EEF3FF;
   --warm:#FFFCFA;--off:#F5F7FA;--canvas:#EAECF5;
-  --txt:#1A1A2E;--txts:#5C6478;--txtm:#9CA3AF;
-  --border:#E0E4EE;--border-l:#EEF0F8;
-  --green:#D1FAE5;--green-d:#059669;--red:#FEE2E2;--red-d:#DC2626;--yellow:#FEF3C7;--yellow-d:#D97706;
+  --surface:#FFFFFF;--surface-2:#F8F9FC;--canvas-bg:#F0F2F8;
+  --txt:#1A1A2E;--txts:#5C6478;--txtm:#9CA3AF;--txtp:#B0B8CC;
+  --border:#E4E8F0;--border-l:#EEF0F8;--border-m:#D1D9EC;
+  --green:#D1FAE5;--green-d:#059669;--green-bg:#F0FDF4;
+  --red:#FEE2E2;--red-d:#DC2626;--red-bg:#FFF1F2;
+  --yellow:#FEF3C7;--yellow-d:#D97706;--yellow-bg:#FFFBEB;
   --shadow:0 1px 4px rgba(0,0,0,.08);--shadow-m:0 4px 16px rgba(0,0,0,.1);
+  --shadow-xs:0 1px 2px rgba(0,0,0,.06);--shadow-s:0 1px 4px rgba(0,0,0,.08);
+  --shadow-l:0 8px 32px rgba(0,0,0,.12);
+  --r-s:6px;--r-m:10px;--r-l:14px;--r-xl:18px;
 }
 html{height:100%;overflow:hidden}
 body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;display:flex;flex-direction:column;color:var(--txt)}
@@ -53,7 +59,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .dash-empty p{font-size:14px;color:var(--txts);max-width:320px;line-height:1.65;margin-bottom:24px}
 
 /* ── TOPBAR ── */
-.topbar{height:52px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0;z-index:200}
+.topbar{height:56px;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 0 var(--border-l);display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0;z-index:200}
 .t-back{display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts);cursor:pointer;border:none;background:transparent;transition:all .15s}
 .t-back:hover{background:var(--off);color:var(--blue)}
 .t-logo{display:flex;align-items:center;gap:8px}
@@ -178,7 +184,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .ol-add-mod:hover{background:var(--blue-ll);border-color:var(--blue)}
 
 /* ── CANVAS ── */
-.canvas{flex:1;background:#fff;overflow-y:auto;display:flex;flex-direction:column;align-items:stretch;min-width:0}
+.canvas{flex:1;background:var(--canvas-bg);overflow-y:auto;display:flex;flex-direction:column;align-items:stretch;min-width:0}
 .canvas-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;color:var(--txts);text-align:center}
 .canvas-empty h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--txt)}
 .canvas-empty p{font-size:14px;max-width:280px;line-height:1.6}
@@ -217,9 +223,9 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 
 /* Block wrapper */
 .block-list{width:100%}
-.block-wrap{position:relative;width:100%;transition:border-color .15s;border-left:4px solid transparent;border-bottom:1px dashed rgba(0,0,0,.07)}
-.block-wrap:hover{border-left-color:rgba(0,0,0,.08)}
-.block-wrap.sel{border-left-color:rgba(0,0,0,.14)}
+.block-wrap{position:relative;width:100%;transition:all .15s;border-bottom:1px solid rgba(0,0,0,.05)}
+.block-wrap:hover{background-color:rgba(64,110,241,.015)}
+.block-wrap.sel{outline:2px solid var(--blue);outline-offset:-2px;border-radius:var(--r-l);z-index:1}
 .bw-white{background:#fff}
 .bw-gray{background:#F5F7FA}
 .bw-blue{background:#EEF3FF}
@@ -243,7 +249,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .bsp-dark{background:#1A1A2E;border-color:#1A1A2E}
 .bw-theme .block-style-picker,.bw-dark .block-style-picker{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.15)}
 .bw-theme .bsp-label,.bw-dark .bsp-label{color:rgba(255,255,255,.55)}
-.block-wrap .block-ctrl{position:absolute;top:8px;right:8px;display:flex;gap:2px;opacity:0;transition:opacity .15s;z-index:20;background:#fff;border:1px solid var(--border);border-radius:6px;padding:3px;box-shadow:var(--shadow-m)}
+.block-wrap .block-ctrl{position:absolute;top:6px;right:10px;display:flex;gap:2px;opacity:0;transition:opacity .15s;z-index:20;background:#fff;border:1px solid var(--border);border-radius:var(--r-s);padding:2px 3px;box-shadow:var(--shadow-m)}
 .block-wrap:hover .block-ctrl,.block-wrap.sel .block-ctrl{opacity:1}
 .bctrl-btn{width:26px;height:26px;border:none;background:transparent;color:var(--txts);cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .12s}
 .bctrl-btn:hover{background:var(--off);color:var(--txt)}
@@ -509,7 +515,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideUp{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
 /* ── BLOCK LIBRARY BAR ── */
-.block-panel{width:168px;min-width:168px;background:#FAFBFF;border-left:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
+.block-panel{width:210px;min-width:210px;background:#FAFBFF;border-left:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden}
 .block-panel-hdr{font-family:'Montserrat',sans-serif;font-weight:800;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--txts);padding:12px 12px 8px;border-bottom:1px solid var(--border-l);flex-shrink:0}
 .bp-cat-lbl{font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--txtm);padding:9px 12px 4px}
 .bp-cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 8px 6px}
@@ -640,6 +646,131 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 /* ── EXPORT/IMPORT SMALL BUTTONS ── */
 .btn-sm{background:var(--off);border:1.5px solid var(--border);border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;color:var(--txts);transition:all .15s;display:inline-flex;align-items:center;gap:4px}
 .btn-sm:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── PHASE 1: DESIGN SYSTEM ADDITIONS ── */
+
+/* Dashboard toolbar */
+.dash-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.dash-search-wrap{position:relative;flex:1;max-width:320px}
+.dash-search{width:100%;padding:9px 12px 9px 36px;border:1.5px solid var(--border);border-radius:var(--r-m);font-family:'Inter',sans-serif;font-size:13px;color:var(--txt);background:#fff;outline:none;transition:border-color .15s}
+.dash-search:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-ll)}
+.dash-search::placeholder{color:var(--txtp)}
+.dash-filter-tabs{display:flex;gap:4px}
+.dash-filter-tab{padding:7px 14px;border-radius:20px;border:none;background:transparent;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;cursor:pointer;color:var(--txts);transition:all .12s}
+.dash-filter-tab:hover{background:var(--surface-2);color:var(--txt)}
+.dash-filter-tab.on{background:var(--blue-ll);color:var(--blue)}
+.dash-view-toggle{display:flex;border:1.5px solid var(--border);border-radius:var(--r-s);overflow:hidden;margin-left:auto}
+.dash-view-btn{width:32px;height:32px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--txts);transition:all .12s}
+.dash-view-btn.on{background:var(--blue-ll);color:var(--blue)}
+
+/* Dashboard list view */
+.course-list{display:flex;flex-direction:column;gap:8px}
+.course-list-item{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:var(--r-m);padding:14px 18px;cursor:pointer;transition:all .15s}
+.course-list-item:hover{border-color:var(--blue-l);box-shadow:var(--shadow-s)}
+.course-list-color{width:10px;height:10px;border-radius:50%;flex-shrink:0;background:var(--blue)}
+.course-list-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--txt);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.course-list-meta{font-size:11px;color:var(--txts);white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600}
+.course-list-actions{display:flex;gap:6px}
+
+/* 3-dot card menu */
+.card-menu-btn{width:28px;height:28px;border-radius:6px;border:none;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .15s;flex-shrink:0}
+.card-menu-btn:hover{background:rgba(255,255,255,.3)}
+.card-menu-wrap{position:relative}
+.card-menu{position:absolute;top:calc(100% + 4px);right:0;background:#fff;border:1px solid var(--border);border-radius:var(--r-m);box-shadow:var(--shadow-l);z-index:200;min-width:150px;padding:4px;animation:fadeUp .15s ease}
+.card-menu-item{display:flex;align-items:center;gap:8px;width:100%;padding:8px 12px;border:none;background:transparent;cursor:pointer;border-radius:var(--r-s);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:var(--txt);text-align:left;transition:background .1s}
+.card-menu-item:hover{background:var(--surface-2)}
+.card-menu-item.danger{color:var(--red-d)}
+.card-menu-item.danger:hover{background:var(--red-bg)}
+.card-menu-div{height:1px;background:var(--border-l);margin:3px 8px}
+
+/* Top nav additions */
+.t-nav{display:flex;gap:2px;background:var(--surface-2);border-radius:20px;padding:3px}
+.t-nav-pill{padding:5px 14px;border-radius:18px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;cursor:pointer;border:none;background:transparent;color:var(--txts);transition:all .12s}
+.t-nav-pill.on{background:#fff;color:var(--blue);box-shadow:var(--shadow-xs)}
+.t-action-group{display:flex;align-items:center;gap:6px;padding-left:10px;border-left:1px solid var(--border-l);margin-left:4px}
+.t-more-btn{width:32px;height:32px;border:1.5px solid var(--border);border-radius:var(--r-s);background:#fff;color:var(--txts);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .15s;flex-shrink:0}
+.t-more-btn:hover{border-color:var(--blue-l);color:var(--blue);background:var(--blue-ll)}
+.t-more-menu{position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--border);border-radius:var(--r-m);box-shadow:var(--shadow-l);z-index:500;min-width:190px;padding:4px}
+.t-more-item{display:flex;align-items:center;gap:9px;width:100%;padding:8px 12px;border:none;background:transparent;cursor:pointer;border-radius:var(--r-s);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:var(--txt);text-align:left;transition:background .1s}
+.t-more-item:hover{background:var(--surface-2)}
+.t-more-div{height:1px;background:var(--border-l);margin:3px 8px}
+.t-more-wrap{position:relative}
+
+/* Autosave dot */
+.t-save-dot{width:6px;height:6px;border-radius:50%;background:var(--green-d);display:inline-block;margin-right:4px;flex-shrink:0;transition:background .3s}
+.t-save-dot.saving{background:var(--yellow-d);animation:savepulse 1s infinite}
+.t-save-dot.error{background:var(--red-d)}
+@keyframes savepulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Publish button */
+.btn-publish{background:var(--blue);color:#fff;border:none;padding:0 16px;height:34px;border-radius:var(--r-s);font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s;box-shadow:0 1px 3px rgba(64,110,241,.25);white-space:nowrap}
+.btn-publish:hover{background:var(--blue-d);box-shadow:0 2px 8px rgba(64,110,241,.35);transform:translateY(-1px)}
+
+/* Block library improvements */
+.blk-lib-header{padding:14px 14px 10px;border-bottom:1px solid var(--border-l);flex-shrink:0}
+.blk-lib-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--txt)}
+.blk-search-wrap{padding:8px 12px;border-bottom:1px solid var(--border-l);flex-shrink:0}
+.blk-search{width:100%;padding:7px 12px 7px 30px;border:1.5px solid var(--border);border-radius:var(--r-s);font-family:'Inter',sans-serif;font-size:12px;color:var(--txt);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2.5'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 9px center;outline:none;transition:border-color .15s}
+.blk-search:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-ll)}
+.blk-search::placeholder{color:var(--txtp)}
+.blk-cats{display:flex;gap:3px;padding:8px 10px;border-bottom:1px solid var(--border-l);flex-wrap:wrap;flex-shrink:0}
+.blk-cat{padding:4px 10px;border-radius:20px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;cursor:pointer;border:none;background:transparent;color:var(--txts);transition:all .12s;white-space:nowrap}
+.blk-cat:hover{background:var(--surface-2);color:var(--txt)}
+.blk-cat.on{background:var(--blue-ll);color:var(--blue)}
+.blb-section{padding:10px 12px 4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--txtp)}
+.blb-btn{display:flex;align-items:center;gap:10px;width:100%;padding:8px 12px;border:none;background:transparent;cursor:grab;text-align:left;border-radius:var(--r-s);transition:background .12s;margin-bottom:1px}
+.blb-btn:hover{background:var(--surface-2)}
+.blb-btn:active{cursor:grabbing}
+.blb-icon{width:30px;height:30px;border-radius:var(--r-s);background:var(--blue-ll);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+.blb-info{flex:1;min-width:0}
+.blb-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--txt);line-height:1.2}
+.blb-desc{font-size:10px;color:var(--txts);line-height:1.3;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.blb-scroll{flex:1;overflow-y:auto;padding:6px 4px 16px}
+
+/* Inline insertion zone */
+.insert-zone{display:flex;align-items:center;gap:0;height:24px;margin:0 16px;opacity:0;transition:opacity .2s;cursor:pointer;position:relative;z-index:5}
+.insert-zone:hover{opacity:1!important}
+.block-wrap:hover~.insert-zone{opacity:.5}
+.insert-zone-line{flex:1;height:1.5px;background:var(--blue);border-radius:1px}
+.insert-zone-btn{width:20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin:0 5px;box-shadow:var(--shadow-m);line-height:1}
+
+/* Publish modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,20,40,.45);backdrop-filter:blur(4px);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-box{background:#fff;border-radius:var(--r-xl);box-shadow:var(--shadow-l);width:100%;max-width:520px;max-height:88vh;overflow-y:auto;animation:fadeUp .2s ease}
+.modal-head{padding:24px 24px 0;display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
+.modal-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--txt)}
+.modal-close-btn{width:30px;height:30px;border:none;background:var(--surface-2);border-radius:50%;cursor:pointer;font-size:15px;color:var(--txts);display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;margin-top:-4px}
+.modal-close-btn:hover{background:var(--border);color:var(--txt)}
+.modal-body{padding:0 24px 24px}
+.modal-footer{padding:14px 24px 20px;border-top:1px solid var(--border-l);display:flex;justify-content:flex-end;gap:8px}
+.pub-section{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border-l)}
+.pub-section:last-child{border-bottom:none;margin-bottom:0}
+.pub-section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--txts);margin-bottom:10px}
+.pub-check{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:var(--r-s);margin-bottom:4px;font-size:13px;font-family:'Inter',sans-serif}
+.pub-check.ok{background:var(--green-bg);color:#065F46}
+.pub-check.warn{background:var(--yellow-bg);color:#78350F}
+.pub-check.err{background:var(--red-bg);color:#7F1D1D}
+.pub-select{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--r-s);font-family:'Inter',sans-serif;font-size:13px;color:var(--txt);background:#fff;outline:none;cursor:pointer;margin-bottom:10px}
+.pub-select:focus{border-color:var(--blue)}
+.pub-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts);display:block;margin-bottom:6px}
+
+/* New course modal step improvements */
+.nc-steps{display:flex;gap:2px;margin-bottom:20px}
+.nc-step{flex:1;height:3px;border-radius:2px;background:var(--border);transition:background .3s}
+.nc-step.done{background:var(--blue)}
+.start-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px}
+.start-option{padding:16px 14px;border:2px solid var(--border);border-radius:var(--r-l);cursor:pointer;transition:all .15s;background:#fff;text-align:left;width:100%}
+.start-option:hover{border-color:var(--blue-l);background:var(--blue-ll)}
+.start-option.on{border-color:var(--blue);background:var(--blue-ll)}
+.start-option-icon{font-size:22px;margin-bottom:8px;display:block}
+.start-option-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--txt);margin-bottom:3px}
+.start-option-desc{font-size:11px;color:var(--txts);line-height:1.45}
+.form-field{margin-bottom:14px}
+.form-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
+.form-input{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--r-s);font-family:'Inter',sans-serif;font-size:14px;color:var(--txt);background:#fff;outline:none;transition:border-color .15s}
+.form-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-ll)}
+.form-input::placeholder{color:var(--txtp)}
+.form-textarea{resize:vertical;min-height:68px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -655,22 +786,58 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
     <div class="dash-header">
       <div class="dash-header-left"><h1>My Courses</h1><p>Build, preview, and export SCORM-ready elearning for Sales and CS.</p></div>
     </div>
-    <div v-if="savedCourses.length>0" class="course-grid">
-      <div v-for="c in savedCourses" :key="c.id" class="course-card" @click="openCourseFromDashboard(c)">
-        <div class="course-card-cover"><div class="course-card-cover-title">{{c.title||'Untitled Course'}}</div></div>
-        <div class="course-card-body">
-          <div class="course-card-sub">{{c.subtitle||'No description yet.'}}</div>
-          <div class="course-card-meta">
-            <div><div class="course-card-stat">{{courseStats(c)}}</div><div class="course-card-stat" style="font-weight:400;color:var(--txtm);margin-top:2px">{{formatDate(c.updatedAt)}}</div></div>
-            <div class="course-card-actions">
-              <button class="card-btn card-btn-del" @click="deleteCourseFromDashboard(c.id,$event)">🗑</button>
-              <button class="card-btn card-btn-open" @click.stop="openCourseFromDashboard(c)" style="background:var(--blue);color:#fff;border-color:var(--blue);font-weight:700;padding:6px 14px">Open →</button>
+    <div class="dash-toolbar">
+      <div class="dash-search-wrap">
+        <input class="dash-search" v-model="dashSearch" placeholder="Search courses…" />
+      </div>
+      <div class="dash-filter-tabs">
+        <button :class="['dash-filter-tab',dashFilter==='all'?'on':'']" @click="dashFilter='all'">All</button>
+        <button :class="['dash-filter-tab',dashFilter==='recent'?'on':'']" @click="dashFilter='recent'">Recent</button>
+      </div>
+      <div class="dash-view-toggle">
+        <button :class="['dash-view-btn',dashView==='grid'?'on':'']" @click="dashView='grid'" title="Grid view">⊞</button>
+        <button :class="['dash-view-btn',dashView==='list'?'on':'']" @click="dashView='list'" title="List view">☰</button>
+      </div>
+    </div>
+    <template v-if="filteredCourses.length>0">
+      <div v-if="dashView==='grid'" class="course-grid">
+        <div v-for="c in filteredCourses" :key="c.id" class="course-card" @click="openCourseFromDashboard(c)">
+          <div class="course-card-cover">
+            <div class="course-card-cover-title">{{c.title||'Untitled Course'}}</div>
+            <div class="card-menu-wrap" style="position:absolute;top:10px;right:10px" @click.stop>
+              <button class="card-menu-btn" @click.stop="showCardMenu=showCardMenu===c.id?null:c.id">···</button>
+              <div class="card-menu" v-if="showCardMenu===c.id">
+                <button class="card-menu-item" @click.stop="openCourseFromDashboard(c);showCardMenu=null">Open</button>
+                <button class="card-menu-item" @click.stop="dupCourseFromDash(c);showCardMenu=null">⧉ Duplicate</button>
+                <div class="card-menu-div"></div>
+                <button class="card-menu-item danger" @click.stop="deleteCourseFromDashboard(c.id,$event);showCardMenu=null">🗑 Delete</button>
+              </div>
+            </div>
+          </div>
+          <div class="course-card-body">
+            <div class="course-card-sub">{{c.subtitle||'No description yet.'}}</div>
+            <div class="course-card-meta">
+              <div><div class="course-card-stat">{{courseStats(c)}}</div><div class="course-card-stat" style="font-weight:400;color:var(--txtm);margin-top:2px">{{formatDate(c.updatedAt)}}</div></div>
+              <div class="course-card-actions">
+                <button class="card-btn card-btn-open" @click.stop="openCourseFromDashboard(c)" style="background:var(--blue);color:#fff;border-color:var(--blue);font-weight:700;padding:6px 14px">Open →</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div v-else class="dash-empty">
+      <div v-else class="course-list">
+        <div v-for="c in filteredCourses" :key="c.id" class="course-list-item" @click="openCourseFromDashboard(c)">
+          <div class="course-list-color"></div>
+          <div class="course-list-title">{{c.title||'Untitled Course'}}</div>
+          <div class="course-list-meta">{{courseStats(c)}} · {{formatDate(c.updatedAt)}}</div>
+          <div class="course-list-actions">
+            <button class="card-btn card-btn-del" @click.stop="deleteCourseFromDashboard(c.id,$event)">🗑</button>
+            <button class="card-btn card-btn-open" @click.stop="openCourseFromDashboard(c)" style="background:var(--blue);color:#fff;border-color:var(--blue);font-weight:700;padding:6px 14px">Open →</button>
+          </div>
+        </div>
+      </div>
+    </template>
+    <div v-if="!filteredCourses.length" class="dash-empty">
       <div class="dash-empty-icon">✦</div>
       <h2>No courses yet</h2>
       <p>Create your first course and start building with interactive blocks.</p>
@@ -678,59 +845,93 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
     </div>
   </div>
   <div class="overlay" v-if="showNewCourse" @click.self="showNewCourse=false">
-    <div class="modal" style="width:460px">
+    <div class="modal" style="width:500px">
       <div class="modal-head"><span class="modal-ttl">New Course</span><button class="modal-close" @click="showNewCourse=false">✕</button></div>
       <div class="modal-body">
-        <div style="margin-bottom:16px">
-          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--txts);margin-bottom:8px">Start from a template</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
-            <div v-for="t in COURSE_TEMPLATES" :key="t.id"
-                 :style="{border:'1.5px solid '+(selectedTemplate&&selectedTemplate.id===t.id?'var(--blue)':'var(--border)'),background:selectedTemplate&&selectedTemplate.id===t.id?'var(--blue-ll)':'#fff'}"
-                 style="border-radius:8px;padding:9px 12px;cursor:pointer;flex:1;min-width:130px;transition:all .15s"
-                 @click.stop="selectedTemplate=t;newCourseForm.title=t.name;newCourseForm.subtitle=t.subtitle">
-              <div style="font-size:18px;margin-bottom:3px">{{t.emoji}}</div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txt)">{{t.name}}</div>
-            </div>
-            <div :style="{border:'1.5px solid '+(selectedTemplate===null?'var(--blue)':'var(--border)'),background:selectedTemplate===null?'var(--blue-ll)':'#fff'}"
-                 style="border-radius:8px;padding:9px 12px;cursor:pointer;flex:1;min-width:100px;display:flex;align-items:center;justify-content:center;transition:all .15s"
-                 @click.stop="selectedTemplate=null;newCourseForm.title=''">
-              <div style="text-align:center">
-                <div style="font-size:18px;margin-bottom:3px">✦</div>
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts)">Blank</div>
+        <div class="nc-steps">
+          <div :class="['nc-step','done']"></div>
+          <div :class="['nc-step',newCourseStep>=2?'done':'']"></div>
+        </div>
+        <!-- Step 1: choose start mode -->
+        <template v-if="newCourseStep===1">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--txt);margin-bottom:14px">How would you like to start?</div>
+          <div class="start-options">
+            <button :class="['start-option',newCourseMode==='blank'?'on':'']" @click.stop="newCourseMode='blank';selectedTemplate=null;newCourseForm.title=''">
+              <span class="start-option-icon">✦</span>
+              <div class="start-option-title">Blank Course</div>
+              <div class="start-option-desc">Start from scratch with a clean slate</div>
+            </button>
+            <button :class="['start-option',newCourseMode==='template'?'on':'']" @click.stop="newCourseMode='template'">
+              <span class="start-option-icon">📋</span>
+              <div class="start-option-title">Use a Template</div>
+              <div class="start-option-desc">Start with a proven course structure</div>
+            </button>
+          </div>
+          <template v-if="newCourseMode==='template'">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--txts);margin:16px 0 8px">Choose a template</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <div v-for="t in COURSE_TEMPLATES" :key="t.id"
+                   :style="{border:'1.5px solid '+(selectedTemplate&&selectedTemplate.id===t.id?'var(--blue)':'var(--border)'),background:selectedTemplate&&selectedTemplate.id===t.id?'var(--blue-ll)':'#fff'}"
+                   style="border-radius:8px;padding:9px 12px;cursor:pointer;flex:1;min-width:130px;transition:all .15s"
+                   @click.stop="selectedTemplate=t;newCourseForm.title=t.name;newCourseForm.subtitle=t.subtitle">
+                <div style="font-size:18px;margin-bottom:3px">{{t.emoji}}</div>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txt)">{{t.name}}</div>
               </div>
             </div>
+          </template>
+        </template>
+        <!-- Step 2: course details -->
+        <template v-else>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--txt);margin-bottom:14px">Course details</div>
+          <div class="p-section"><span class="p-lbl">Course Title *</span><input class="p-input" v-model="newCourseForm.title" placeholder="e.g. Discovery Best Practices for AEs" @keydown.enter="startNewCourse" /></div>
+          <div class="p-section"><span class="p-lbl">Subtitle / Description</span><textarea class="p-input p-ta" v-model="newCourseForm.subtitle" placeholder="What will learners get from this course?"></textarea></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="p-section"><span class="p-lbl">Audience</span><input class="p-input" v-model="newCourseForm.audience" placeholder="AEs, CSMs, both…" /></div>
+            <div class="p-section"><span class="p-lbl">Duration</span><input class="p-input" v-model="newCourseForm.duration" placeholder="e.g. 20 min" /></div>
           </div>
-        </div>
-        <div class="p-section"><span class="p-lbl">Course Title *</span><input class="p-input" v-model="newCourseForm.title" placeholder="e.g. Discovery Best Practices for AEs" @keydown.enter="startNewCourse" /></div>
-        <div class="p-section"><span class="p-lbl">Subtitle / Description</span><textarea class="p-input p-ta" v-model="newCourseForm.subtitle" placeholder="What will learners get from this course?"></textarea></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div class="p-section"><span class="p-lbl">Audience</span><input class="p-input" v-model="newCourseForm.audience" placeholder="AEs, CSMs, both…" /></div>
-          <div class="p-section"><span class="p-lbl">Duration</span><input class="p-input" v-model="newCourseForm.duration" placeholder="e.g. 20 min" /></div>
-        </div>
+        </template>
       </div>
-      <div class="modal-foot"><button class="btn btn-ghost" @click="showNewCourse=false">Cancel</button><button class="btn btn-blue" @click="startNewCourse">Create Course →</button></div>
+      <div class="modal-foot">
+        <button class="btn btn-ghost" @click="newCourseStep===1?showNewCourse=false:newCourseStep=1">{{newCourseStep===1?'Cancel':'← Back'}}</button>
+        <button class="btn btn-blue" @click="newCourseStep===1?newCourseStep=2:startNewCourse()">{{newCourseStep===1?'Next →':'Create Course →'}}</button>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ═══ BUILDER ═══ -->
 <template v-else>
-<div class="topbar">
-  <button class="t-back" @click="openDashboard">← My Courses</button>
+<div class="topbar" v-if="view==='builder'">
+  <button class="t-back" @click="openDashboard">← Courses</button>
+  <div class="t-logo"><div class="t-logo-mark">S</div></div>
   <div class="t-div"></div>
-  <div class="t-logo"><div class="t-logo-mark">S</div><span class="t-logo-name">Course Builder</span></div>
-  <div class="t-div"></div>
-  <input class="t-title" v-model="course.title" placeholder="Course title…" />
+  <input class="t-title" v-model="course.title" placeholder="Course title…" @change="saveCurrentCourse()" />
+  <div style="display:flex;align-items:center;gap:5px;margin:0 8px">
+    <span :class="['t-save-dot',saveStatus==='saving'?'saving':saveStatus==='error'?'error':'']"></span>
+    <span class="t-save-status">{{saveStatus==='saving'?'Saving…':saveStatus==='error'?'Save failed':'Saved'}}</span>
+  </div>
+  <div class="t-nav" style="margin:0 auto">
+    <button class="t-nav-pill on">Build</button>
+    <button class="t-nav-pill" @click="showToast('Theme editor coming soon')">Theme</button>
+    <button class="t-nav-pill" @click="showToast('Settings coming soon')">Settings</button>
+  </div>
   <div class="t-right">
-    <button class="t-icon-btn" @click="undoAction" :disabled="!canUndo" title="Undo (⌘Z)" style="font-size:18px">↩</button>
-    <button class="t-icon-btn" @click="redoAction" :disabled="!canRedo" title="Redo (⌘⇧Z)" style="font-size:18px">↪</button>
-    <span class="t-save-status" v-if="saveStatus">{{saveStatus}}</span>
-    <button class="btn-sm" @click="exportCourseJSON" title="Export as JSON file to share" style="font-size:11px;padding:5px 10px">⬇ Export JSON</button>
-    <label class="btn-sm" style="font-size:11px;padding:5px 10px;cursor:pointer" title="Import a course JSON file">
-      ⬆ Import<input type="file" accept=".json" style="display:none" @change="importCourseJSON($event)" />
-    </label>
-    <button class="btn btn-ghost" @click="openPreview">▶ Preview</button>
-    <button class="btn btn-green" @click="exportSCORM">⬇ Export SCORM</button>
+    <button class="btn btn-ghost" style="padding:0 10px;height:32px" @click="undoAction" :disabled="!canUndo" title="Undo">↩</button>
+    <button class="btn btn-ghost" style="padding:0 10px;height:32px" @click="redoAction" :disabled="!canRedo" title="Redo">↪</button>
+    <div class="t-action-group">
+      <div class="t-more-wrap">
+        <button class="t-more-btn" @click="showMoreMenu=!showMoreMenu" title="More options">···</button>
+        <div class="t-more-menu" v-if="showMoreMenu" @click.stop>
+          <button class="t-more-item" @click="exportCourseJSON();showMoreMenu=false">⬇ Export JSON</button>
+          <button class="t-more-item" @click="$refs.jsonImport.click();showMoreMenu=false">⬆ Import JSON</button>
+          <div class="t-more-div"></div>
+          <button class="t-more-item" @click="dupCourse();showMoreMenu=false">⧉ Duplicate Course</button>
+        </div>
+        <input type="file" ref="jsonImport" accept=".json" style="display:none" @change="importCourseJSON" />
+      </div>
+      <button class="btn btn-ghost" style="padding:0 14px;height:34px" @click="openPreview">▷ Preview</button>
+      <button class="btn-publish" @click="showPublish=true">⬆ Publish</button>
+    </div>
   </div>
 </div>
 
@@ -1017,6 +1218,11 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
         <!-- BLOCKS -->
         <div ref="blockListRef" class="block-list"
              @dragover.prevent @drop.prevent>
+          <div class="insert-zone" @click.stop="addBlockAt(0)" title="Add block here">
+            <div class="insert-zone-line"></div>
+            <div class="insert-zone-btn">+</div>
+            <div class="insert-zone-line"></div>
+          </div>
           <div v-if="dragType" class="drop-zone" :class="{over:dropIdx===0}"
                @dragenter.prevent="dropIdx=0" @dragleave="dropIdx=null" @drop.prevent="dropBlock(0)"></div>
           <template v-for="(block,bi) in curLesson.blocks" :key="block.id">
@@ -1568,6 +1774,11 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
               </div>
             </div><!-- /block-inner -->
           </div><!-- /block-wrap -->
+          <div class="insert-zone" @click.stop="addBlockAt(bi+1)" title="Add block here">
+            <div class="insert-zone-line"></div>
+            <div class="insert-zone-btn">+</div>
+            <div class="insert-zone-line"></div>
+          </div>
           <div v-if="dragType" class="drop-zone" :class="{over:dropIdx===bi+1}"
                @dragenter.prevent="dropIdx=bi+1" @dragleave="dropIdx=null" @drop.prevent="dropBlock(bi+1)"></div>
           </template><!-- /v-for -->
@@ -1586,21 +1797,32 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
   <!-- RIGHT BLOCK PANEL -->
   <div class="block-panel" v-if="curLesson"
        @dragover.prevent @drop.prevent="endDrag()">
-    <div class="block-panel-hdr">Add Block</div>
-    <template v-for="cat in ['Content','Media','Interactive']" :key="cat">
-      <div class="bp-cat-lbl">{{cat}}</div>
-      <div class="bp-cat-grid">
-        <button v-for="w in WIDGETS.filter(x=>x.category===cat)" :key="w.type"
-                class="bp-item" draggable="true"
+    <div class="blk-lib-header"><span class="blk-lib-title">Add Block</span></div>
+    <div class="blk-search-wrap">
+      <input class="blk-search" v-model="blkSearch" placeholder="Search blocks…" />
+    </div>
+    <div class="blk-cats">
+      <button v-for="cat in ['All','Content','Media','Interactive']" :key="cat"
+              :class="['blk-cat',blkCategory===cat?'on':'']"
+              @click="blkCategory=cat">{{cat}}</button>
+    </div>
+    <div class="blb-scroll">
+      <template v-for="cat in (blkCategory==='All'?['Content','Media','Interactive']:[blkCategory])" :key="cat">
+        <div class="blb-section" v-if="blkCategory==='All'&&WIDGETS.filter(x=>x.category===cat&&(blkSearch===''||x.label.toLowerCase().includes(blkSearch.toLowerCase())||x.desc.toLowerCase().includes(blkSearch.toLowerCase()))).length">{{cat}}</div>
+        <button v-for="w in WIDGETS.filter(x=>x.category===cat&&(blkSearch===''||x.label.toLowerCase().includes(blkSearch.toLowerCase())||x.desc.toLowerCase().includes(blkSearch.toLowerCase())))" :key="w.type"
+                class="blb-btn" draggable="true"
                 @dragstart="startDrag(w.type,$event)"
                 @dragend="endDrag()"
                 @click="confirmAddBlock(w.type)"
                 :title="w.desc">
-          <span class="bp-icon">{{w.icon}}</span>
-          <span class="bp-name">{{w.label}}</span>
+          <div class="blb-icon">{{w.icon}}</div>
+          <div class="blb-info">
+            <div class="blb-name">{{w.label}}</div>
+            <div class="blb-desc">{{w.desc}}</div>
+          </div>
         </button>
-      </div>
-    </template>
+      </template>
+    </div>
   </div>
 </div>
 
@@ -1614,6 +1836,42 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
   <iframe class="prev-frame" :srcdoc="previewHTML" sandbox="allow-scripts allow-same-origin"></iframe>
 </div>
 </template>
+
+<!-- PUBLISH MODAL -->
+<div class="modal-overlay" v-if="showPublish" @click.self="showPublish=false">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="modal-title">Publish Course</div>
+      <button class="modal-close-btn" @click="showPublish=false">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="pub-section">
+        <div class="pub-section-title">Validation</div>
+        <div :class="['pub-check', course.title?'ok':'err']">{{course.title?'✓':'✕'}} Course has a title</div>
+        <div :class="['pub-check', course.modules.length?'ok':'err']">{{course.modules.length?'✓':'✕'}} Course has modules</div>
+        <div :class="['pub-check', totalLessons>0?'ok':'warn']">{{totalLessons>0?'✓':'⚠'}} Course has {{totalLessons}} lesson{{totalLessons!==1?'s':''}}</div>
+      </div>
+      <div class="pub-section">
+        <div class="pub-section-title">SCORM Settings</div>
+        <label class="pub-label">SCORM Version</label>
+        <select class="pub-select">
+          <option>SCORM 1.2 (recommended)</option>
+          <option>SCORM 2004</option>
+        </select>
+        <label class="pub-label">Completion Rule</label>
+        <select class="pub-select">
+          <option>Complete all lessons</option>
+          <option>Pass the assessment</option>
+          <option>View any content</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" @click="showPublish=false">Cancel</button>
+      <button class="btn-publish" @click="exportSCORM();showPublish=false">⬇ Export SCORM Package</button>
+    </div>
+  </div>
+</div>
 
 <div class="toast" v-if="toast">{{toast}}</div>
 </div>
@@ -1755,8 +2013,18 @@ function dropBlock(idx){
     const openMods=reactive({});
     const showAddBlock=ref(false);const showPreview=ref(false);const toast=ref(null);
     const showTemplates=ref(false);const selectedTemplate=ref(null);
-    const insertAt=ref(0);
+    const insertAt=ref(-1);
     const blockListRef=ref(null);const moduleListRef=ref(null);
+    const showMoreMenu=ref(false);
+    const dashSearch=ref('');
+    const dashFilter=ref('all');
+    const dashView=ref('grid');
+    const blkSearch=ref('');
+    const blkCategory=ref('All');
+    const newCourseStep=ref(1);
+    const newCourseMode=ref('blank');
+    const showPublish=ref(false);
+    const showCardMenu=ref(null);
 
     // ── SORTABLE ──
     let _blockSortable=null,_modSortable=null,_lesSortables=[];
@@ -1875,6 +2143,7 @@ function dropBlock(idx){
         if((e.metaKey||e.ctrlKey)&&!e.shiftKey&&e.key==='z'){e.preventDefault();undoAction();}
         else if((e.metaKey||e.ctrlKey)&&(e.key==='y'||(e.shiftKey&&e.key==='z'))){e.preventDefault();redoAction();}
       });
+      document.addEventListener('click',()=>{showMoreMenu.value=false;showCardMenu.value=null;});
     });
     function startNewCourse(){
       if(!newCourseForm.title.trim()){showToast('Please enter a course title.');return;}
@@ -1883,18 +2152,37 @@ function dropBlock(idx){
         modules:selectedTemplate.value?JSON.parse(JSON.stringify(selectedTemplate.value.modules)).map(m=>({...m,id:uid(),lessons:(m.lessons||[]).map(l=>({...l,id:uid(),blocks:(l.blocks||[]).map(b=>({...b,id:uid()}))}))})):[],
         createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
       const courses=loadCourses();courses.unshift(c);saveCourses(courses);savedCourses.value=courses;
-      showNewCourse.value=false;newCourseForm.title='';newCourseForm.subtitle='';newCourseForm.audience='';newCourseForm.duration='';
+      showNewCourse.value=false;newCourseStep.value=1;newCourseMode.value='blank';newCourseForm.title='';newCourseForm.subtitle='';newCourseForm.audience='';newCourseForm.duration='';
       selectedTemplate.value=null;
       openCourseFromDashboard(c);
     }
     function deleteCourseFromDashboard(id,e){e.stopPropagation();if(!confirm('Delete this course?'))return;const courses=loadCourses().filter(c=>c.id!==id);saveCourses(courses);savedCourses.value=courses;}
+    function dupCourse(){
+      if(!course.id)return;
+      const dup=JSON.parse(JSON.stringify(course));
+      dup.id=uid();dup.title=(course.title||'Course')+' (Copy)';dup.createdAt=new Date().toISOString();dup.updatedAt=new Date().toISOString();
+      savedCourses.value.push(dup);
+      saveCourses(savedCourses.value);
+      showToast('Course duplicated');
+    }
+    function dupCourseFromDash(c){
+      const dup=JSON.parse(JSON.stringify(c));
+      dup.id=uid();dup.title=(c.title||'Course')+' (Copy)';dup.createdAt=new Date().toISOString();dup.updatedAt=new Date().toISOString();
+      const courses=loadCourses();courses.push(dup);saveCourses(courses);savedCourses.value=courses;
+      showToast('Course duplicated');
+    }
+    const filteredCourses=computed(()=>{
+      let cs=savedCourses.value;
+      if(dashSearch.value)cs=cs.filter(c=>(c.title||'').toLowerCase().includes(dashSearch.value.toLowerCase()));
+      return cs;
+    });
 
     // ── AUTO-SAVE ──
     let _saveTimer=null,_saveDot=null;
     watch(()=>JSON.stringify(course),()=>{
       if(view.value!=='builder'||!currentCourseId.value)return;
-      clearTimeout(_saveTimer);clearTimeout(_saveDot);saveStatus.value='Saving\u2026';
-      _saveTimer=setTimeout(()=>{saveCurrentCourse();saveStatus.value='\u2713 Saved';_saveDot=setTimeout(()=>saveStatus.value='',2000)},1500);
+      clearTimeout(_saveTimer);clearTimeout(_saveDot);saveStatus.value='saving';
+      _saveTimer=setTimeout(()=>{saveCurrentCourse();saveStatus.value='saved';_saveDot=setTimeout(()=>saveStatus.value='saved',2000)},1500);
     });
 
     // ── MODULE/LESSON ──
@@ -1940,8 +2228,8 @@ function dropBlock(idx){
       canRedo.value=_redoStack.length>0;
     }
 
-    function addBlockAt(idx){insertAt.value=idx;showAddBlock.value=true;}
-    function confirmAddBlock(type){_pushHist();if(!curLesson.value)return;const b={id:uid(),type,bg:'white',config:defCfg(type)};curLesson.value.blocks.push(b);selBlock.value=b.id;nextTick(()=>{initBlockSortable();const el=document.querySelector('.block-wrap:last-child');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});}
+    function addBlockAt(idx){insertAt.value=idx;showToast('Block library active — click a block to insert here');}
+    function confirmAddBlock(type){_pushHist();if(!curLesson.value)return;const b={id:uid(),type,bg:'white',config:defCfg(type)};const insertIdx=typeof insertAt.value==='number'&&insertAt.value>=0&&insertAt.value<=curLesson.value.blocks.length?insertAt.value:curLesson.value.blocks.length;curLesson.value.blocks.splice(insertIdx,0,b);insertAt.value=-1;selBlock.value=b.id;nextTick(()=>{initBlockSortable();const el=document.querySelector('.block-wrap.sel');if(el)el.scrollIntoView({behavior:'smooth',block:'nearest'});});}
     function delBlock(id){_pushHist();if(!curLesson.value)return;curLesson.value.blocks=curLesson.value.blocks.filter(b=>b.id!==id);if(selBlock.value===id)selBlock.value=null;}
     function dupBlock(id){
       _pushHist();
@@ -2051,7 +2339,10 @@ function addKCQ(block){block.config.questions.push({id:uid(),question:'',type:'m
       cardFlip,activeTab,getActiveTab,setActiveTab,dragType,dropIdx,dawColor,dawRotate,startDrag,endDrag,dropBlock,onQuizTypeChange,tbTitleStyle,tbBodyStyle,
       canUndo,canRedo,undoAction,redoAction,
       getBlockPadding,numPad,selBlockObj,handleImgUpload,handleBannerImgUpload,exportCourseJSON,importCourseJSON,
-      COURSE_TEMPLATES,showTemplates,selectedTemplate
+      COURSE_TEMPLATES,showTemplates,selectedTemplate,
+      showMoreMenu,dashSearch,dashFilter,dashView,blkSearch,blkCategory,
+      newCourseStep,newCourseMode,showPublish,showCardMenu,
+      filteredCourses,dupCourse,dupCourseFromDash
     };
   }
 });
