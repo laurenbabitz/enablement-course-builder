@@ -1993,11 +1993,6 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
               </div>
             </div><!-- /block-inner -->
           </div><!-- /block-wrap -->
-          <div v-if="bi < curLesson.blocks.length - 1" class="insert-zone" @click.stop="addBlockAt(bi+1)">
-            <div class="insert-zone-line"></div>
-            <div class="insert-zone-btn">+</div>
-            <div class="insert-zone-line"></div>
-          </div>
           <div v-if="dragType" class="drop-zone" :class="{over:dropIdx===bi+1}"
                @dragenter.prevent="dropIdx=bi+1" @dragleave="dropIdx=null" @drop.prevent="dropBlock(bi+1)"></div>
           </template><!-- /v-for -->
