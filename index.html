@@ -14,19 +14,10 @@
 :root{
   --blue:#406EF1;--blue-d:#2D56D9;--blue-l:#BDCCFB;--blue-ll:#EEF3FF;
   --warm:#FFFCFA;--off:#F5F7FA;--canvas:#EAECF5;
-  --surface:#FFFFFF;--surface-2:#F8F9FC;--canvas-bg:#F0F2F8;
-  --txt:#1A1A2E;--txts:#5C6478;--txtm:#9CA3AF;--txtp:#B0B8CC;
-  --border:#E4E8F0;--border-l:#EEF0F8;--border-m:#D1D9EC;
-  --green:#D1FAE5;--green-d:#059669;--green-bg:#F0FDF4;
-  --red:#FEE2E2;--red-d:#DC2626;--red-bg:#FFF1F2;
-  --yellow:#FEF3C7;--yellow-d:#D97706;--yellow-bg:#FFFBEB;
+  --txt:#1A1A2E;--txts:#5C6478;--txtm:#9CA3AF;
+  --border:#E0E4EE;--border-l:#EEF0F8;
+  --green:#D1FAE5;--green-d:#059669;--red:#FEE2E2;--red-d:#DC2626;--yellow:#FEF3C7;--yellow-d:#D97706;
   --shadow:0 1px 4px rgba(0,0,0,.08);--shadow-m:0 4px 16px rgba(0,0,0,.1);
-  --shadow-xs:0 1px 2px rgba(0,0,0,.06);--shadow-s:0 1px 4px rgba(0,0,0,.08);
-  --shadow-l:0 8px 32px rgba(0,0,0,.12);
-  --r-s:6px;--r-m:10px;--r-l:14px;--r-xl:18px;
-  --ease:cubic-bezier(.25,.1,.25,1);
-  --ease-out:cubic-bezier(0,0,.2,1);
-  --t1:.12s;--t2:.18s;--t3:.25s;
 }
 html{height:100%;overflow:hidden}
 body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;display:flex;flex-direction:column;color:var(--txt)}
@@ -43,7 +34,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .dash-header-left h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:28px;color:var(--txt);margin-bottom:4px}
 .dash-header-left p{font-size:14px;color:var(--txts)}
 .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-.course-card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:all var(--t2) var(--ease-out);box-shadow:var(--shadow)}
+.course-card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:all .2s;box-shadow:var(--shadow)}
 .course-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.1);transform:translateY(-2px);border-color:var(--blue-l)}
 .course-card-cover{height:110px;background:linear-gradient(135deg,var(--blue) 0%,#2D56D9 100%);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:16px}
 .course-card-cover::before{content:'';position:absolute;top:-24px;right:-24px;width:120px;height:120px;background:rgba(255,255,255,.07);border-radius:50%}
@@ -62,7 +53,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .dash-empty p{font-size:14px;color:var(--txts);max-width:320px;line-height:1.65;margin-bottom:24px}
 
 /* ── TOPBAR ── */
-.topbar{height:56px;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 0 var(--border-l);display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0;z-index:200}
+.topbar{height:52px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:10px;flex-shrink:0;z-index:200}
 .t-back{display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts);cursor:pointer;border:none;background:transparent;transition:all .15s}
 .t-back:hover{background:var(--off);color:var(--blue)}
 .t-logo{display:flex;align-items:center;gap:8px}
@@ -72,7 +63,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .t-title{flex:1;max-width:380px;border:none;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;color:var(--txt);padding:5px 8px;border-radius:5px;transition:background .15s}
 .t-title:hover{background:var(--off)}.t-title:focus{outline:none;background:var(--blue-ll);box-shadow:0 0 0 2px var(--blue-l)}
 .t-right{margin-left:auto;display:flex;align-items:center;gap:8px}
-.t-save-status{font-size:11px;color:var(--txtp);font-family:'Inter',sans-serif;font-weight:500}
+.t-save-status{font-size:11px;color:var(--txtm);font-family:'Montserrat',sans-serif;font-weight:600}
 .btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:7px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;cursor:pointer;border:none;transition:all .15s;white-space:nowrap}
 .btn-ghost{background:transparent;color:var(--txts);border:1.5px solid var(--border)}.btn-ghost:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-ll)}
 .btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-d)}
@@ -167,10 +158,9 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .ol-mod-del{background:transparent;border:none;color:var(--txtm);cursor:pointer;padding:2px 5px;border-radius:3px;font-size:11px;opacity:0;transition:opacity .15s;flex-shrink:0}
 .ol-mod-row:hover .ol-mod-del{opacity:1}
 .ol-lessons{padding-left:10px;margin:2px 8px 2px 20px}
-.ol-lesson{display:flex;align-items:center;gap:8px;padding:6px 8px 6px 6px;border-radius:6px;cursor:pointer;font-size:12px;color:var(--txts);position:relative;transition:background var(--t1) var(--ease-out),color var(--t1) var(--ease-out)}
+.ol-lesson{display:flex;align-items:center;gap:8px;padding:7px 8px 7px 6px;border-radius:8px;cursor:pointer;font-size:12px;color:var(--txts);position:relative;transition:all .12s}
 .ol-lesson:hover{background:var(--off);color:var(--txt)}
 .ol-lesson.active{background:var(--blue-ll);color:var(--blue);font-weight:600;font-family:'Montserrat',sans-serif}
-
 .ol-lesson.active::before{content:'';position:absolute;left:0;top:20%;height:60%;width:3px;border-radius:2px;background:var(--active-color,var(--blue))}
 .les-drag-handle{cursor:grab;color:var(--txtm);font-size:11px;opacity:0;transition:opacity .15s;flex-shrink:0}
 .ol-lesson:hover .les-drag-handle{opacity:1}
@@ -184,11 +174,11 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .ol-lesson:hover .ol-lesson-del{opacity:1}
 .ol-add-lesson{display:flex;align-items:center;gap:5px;padding:5px 6px;color:var(--blue);cursor:pointer;font-size:11px;font-weight:600;border-radius:4px;opacity:.65;transition:all .15s;margin-top:2px}
 .ol-add-lesson:hover{opacity:1;background:var(--blue-ll)}
-.ol-add-mod{margin:8px 10px 4px;display:flex;align-items:center;justify-content:center;gap:5px;padding:8px;border:none;background:transparent;color:var(--txts);cursor:pointer;font-size:11px;font-weight:600;font-family:'Montserrat',sans-serif;transition:color var(--t1);border-top:1px solid var(--border-l);flex-shrink:0}
-.ol-add-mod:hover{color:var(--blue)}
+.ol-add-mod{margin:10px 10px 4px;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;border:1.5px dashed var(--blue-l);border-radius:8px;color:var(--blue);cursor:pointer;font-size:11px;font-weight:700;font-family:'Montserrat',sans-serif;transition:all .15s;flex-shrink:0}
+.ol-add-mod:hover{background:var(--blue-ll);border-color:var(--blue)}
 
 /* ── CANVAS ── */
-.canvas{flex:1;background:var(--canvas-bg);overflow-y:auto;display:flex;flex-direction:column;align-items:stretch;min-width:0}
+.canvas{flex:1;background:#fff;overflow-y:auto;display:flex;flex-direction:column;align-items:stretch;min-width:0}
 .canvas-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;color:var(--txts);text-align:center}
 .canvas-empty h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--txt)}
 .canvas-empty p{font-size:14px;max-width:280px;line-height:1.6}
@@ -217,25 +207,25 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .cover-inp-sm::placeholder{color:rgba(255,255,255,.4)}
 
 /* Lesson header */
-.lesson-header{display:flex;align-items:center;gap:10px;padding:20px 0 16px;border-bottom:1px solid var(--border-l);margin-bottom:4px}
+.lesson-header{display:flex;align-items:center;gap:10px;padding:24px 0 12px}
 .lesson-number{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);background:var(--blue-ll);padding:4px 10px;border-radius:20px}
-.lesson-title-input{flex:1;border:none;background:transparent;font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:var(--txt);padding:3px 6px;border-radius:5px;transition:background var(--t2) var(--ease-out);min-width:0}
+.lesson-title-input{flex:1;border:none;background:transparent;font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:var(--txt);padding:3px 6px;border-radius:5px;transition:background .15s;min-width:0}
 .lesson-title-input:hover{background:rgba(255,255,255,.7)}
-.lesson-title-input:focus{outline:none;background:rgba(255,255,255,.8)}
+.lesson-title-input:focus{outline:none;background:#fff;box-shadow:0 0 0 2px var(--blue-l)}
 .lesson-del-btn{background:transparent;border:none;color:var(--txtm);cursor:pointer;padding:5px 7px;border-radius:5px;font-size:12px;transition:all .15s}
 .lesson-del-btn:hover{background:var(--red);color:var(--red-d)}
 
 /* Block wrapper */
 .block-list{width:100%}
-.block-wrap{position:relative;width:100%;transition:background var(--t1) var(--ease-out)}
-.block-wrap:hover{background:rgba(0,0,0,.012)}
-.block-wrap.sel{background:rgba(64,110,241,.025)}
+.block-wrap{position:relative;width:100%;transition:border-color .15s;border-left:4px solid transparent;border-bottom:1px dashed rgba(0,0,0,.07)}
+.block-wrap:hover{border-left-color:rgba(0,0,0,.08)}
+.block-wrap.sel{border-left-color:rgba(0,0,0,.14)}
 .bw-white{background:#fff}
 .bw-gray{background:#F5F7FA}
 .bw-blue{background:#EEF3FF}
 .bw-theme{background:var(--blue)}
 .bw-dark{background:#1A1A2E}
-.block-inner{max-width:780px;margin:0 auto;padding:8px 64px;width:100%}
+.block-inner{max-width:780px;margin:0 auto;padding:0 64px;width:100%}
 .block-style-picker{display:flex;align-items:center;gap:7px;margin-bottom:16px;padding:8px 12px;background:rgba(255,255,255,.92);border:1px solid var(--border-l);border-radius:8px;width:fit-content;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .bsp-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--txtm);margin-right:4px;white-space:nowrap}
 .bsp-swatch{width:17px;height:17px;border-radius:50%;border:2px solid var(--border);cursor:pointer;transition:transform .12s,border-color .12s;flex-shrink:0}
@@ -253,14 +243,14 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .bsp-dark{background:#1A1A2E;border-color:#1A1A2E}
 .bw-theme .block-style-picker,.bw-dark .block-style-picker{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.15)}
 .bw-theme .bsp-label,.bw-dark .bsp-label{color:rgba(255,255,255,.55)}
-.block-wrap .block-ctrl{position:absolute;top:8px;right:12px;display:flex;gap:1px;opacity:0;transition:opacity var(--t1) var(--ease-out);z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border:1px solid var(--border-l);border-radius:var(--r-s);padding:2px;box-shadow:0 1px 8px rgba(0,0,0,.08)}
+.block-wrap .block-ctrl{position:absolute;top:8px;right:8px;display:flex;gap:2px;opacity:0;transition:opacity .15s;z-index:20;background:#fff;border:1px solid var(--border);border-radius:6px;padding:3px;box-shadow:var(--shadow-m)}
 .block-wrap:hover .block-ctrl,.block-wrap.sel .block-ctrl{opacity:1}
-.bctrl-btn{width:26px;height:26px;border:none;background:transparent;color:var(--txts);cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all var(--t1) var(--ease-out)}
+.bctrl-btn{width:26px;height:26px;border:none;background:transparent;color:var(--txts);cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .12s}
 .bctrl-btn:hover{background:var(--off);color:var(--txt)}
 .bctrl-btn.del:hover{background:var(--red);color:var(--red-d)}
-.bctrl-type{display:flex;align-items:center;gap:4px;padding:0 7px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--txts);border-right:1px solid var(--border-l)}
+.bctrl-type{display:flex;align-items:center;gap:4px;padding:0 6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:var(--blue);border-right:1px solid var(--border-l)}
 .drag-handle{cursor:grab;font-size:16px}.drag-handle:active{cursor:grabbing}
-.sortable-ghost{opacity:.3;background:var(--blue-ll)!important;border-radius:var(--r-l)!important;outline:2px dashed var(--blue-l)!important}
+.sortable-ghost{opacity:.35;background:var(--blue-ll)!important;outline:2px dashed var(--blue)!important;border-radius:10px!important}
 
 /* Editing badge inside block */
 .block-edit-badge{font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);padding:0 0 8px 0;display:flex;align-items:center;gap:4px}
@@ -286,10 +276,10 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .flip-edit-front{padding:12px 14px;background:var(--warm);min-height:58px}
 .flip-edit-divider{background:var(--blue-ll);border-top:1px dashed var(--blue-l);border-bottom:1px dashed var(--blue-l);padding:3px 10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;text-align:center}
 .flip-edit-back{padding:12px 14px;background:var(--blue);min-height:58px}
-.kc-edit-q{background:#fff;border:none;border-bottom:1px solid var(--border-l);border-radius:0;padding:16px 0;margin-bottom:0;transition:none}
-.kc-edit-q:hover{background:rgba(0,0,0,.008)}
+.kc-edit-q{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px;transition:border-color .15s,box-shadow .15s}
+.kc-edit-q:hover{border-color:var(--blue-l);box-shadow:0 2px 8px rgba(99,102,241,.07)}
 .kc-edit-q:last-child{margin-bottom:0}
-.kc-ch-edit{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid var(--border-l);border-radius:8px;margin-bottom:6px;transition:border-color var(--t1),background var(--t1);background:#fff}
+.kc-ch-edit{display:flex;align-items:center;gap:10px;padding:11px 14px;border:2px solid var(--border);border-radius:9px;margin-bottom:7px;transition:border-color .15s,background .15s}
 .kc-ch-edit.correct-ans{border-color:#A7F3D0;background:#F0FDF4}
 .kc-correct-marker{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--txts);transition:all .15s}
 .kc-ch-edit.correct-ans .kc-correct-marker{border-color:#059669;background:transparent;color:#059669}
@@ -342,7 +332,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .story-body-edit{font-size:15px;line-height:1.75;min-height:60px}
 .story-img-edit{font-size:12px;color:var(--txtm);font-style:italic;margin-top:6px}
 
-.w-flip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.w-flip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
 /* Flip card v8 — card with shadow, flip button */
 .w-fce{position:relative;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.13),0 1px 4px rgba(0,0,0,.07);overflow:hidden;min-height:150px;display:flex;flex-direction:column;background:#fff;transition:box-shadow .15s}
 .w-fce:hover{box-shadow:0 6px 24px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.08)}
@@ -362,25 +352,24 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .w-fce.is-front .w-fce-text{color:var(--txt)}
 .w-fce.is-back .w-fce-text{color:#fff}
 /* Legacy player compat */
-.w-flip-f-text{font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;color:var(--txt)}
+.w-flip-f-text{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--txt)}
 .flip-b-edit{font-size:13px;line-height:1.55;min-height:36px}
 
-.w-tabs-hdr{display:flex;border-bottom:1.5px solid var(--border-l);flex-wrap:wrap;gap:0;padding:0 2px}
-.w-tab{padding:10px 18px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;cursor:pointer;border:none;background:transparent;color:var(--txts);border-bottom:2px solid transparent;margin-bottom:-1.5px;transition:color var(--t1),border-color var(--t1);white-space:nowrap;border-radius:0}
-.w-tab:hover{color:var(--blue)}.w-tab.on{color:var(--blue);border-bottom-color:var(--blue);font-weight:700}
-.w-tab-body{padding:24px 4px;background:transparent;font-size:15px;color:var(--txt);line-height:1.75;min-height:60px}
+.w-tabs-hdr{display:flex;border-bottom:2px solid var(--border);flex-wrap:wrap;gap:0}
+.w-tab{padding:12px 22px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;cursor:pointer;border:none;background:transparent;color:var(--txts);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap;border-radius:6px 6px 0 0}
+.w-tab:hover{color:var(--blue)}.w-tab.on{color:var(--blue);border-bottom-color:var(--blue);background:#fff}
+.w-tab-body{padding:28px 24px;background:#fff;border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;font-size:15px;color:var(--txt);line-height:1.8;min-height:80px}
 /* Tab edit */
 .tab-row-edit{background:var(--off);border-radius:8px;padding:11px 13px;margin-bottom:7px;border:1px solid var(--border-l);position:relative}
 .tab-row-head{display:flex;align-items:center;gap:7px;margin-bottom:7px}
 .tab-lbl-edit{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--blue);flex:1}
 .tab-content-edit{font-size:14px;line-height:1.75;min-height:50px}
 
-.w-acc-item{border:none;border-bottom:1px solid var(--border-l);margin-bottom:0;overflow:hidden;transition:none}
-.w-acc-item:last-child{border-bottom:none}
-.w-acc-hdr{padding:14px 4px;background:transparent;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;color:var(--txt);transition:color var(--t1) var(--ease-out);user-select:none}
-.w-acc-hdr:hover{color:var(--blue)}.w-acc-hdr.on{color:var(--blue)}
-.w-acc-chev{font-size:11px;color:var(--txtp);transition:transform var(--t2) var(--ease-out)}.w-acc-chev.on{transform:rotate(180deg)}
-.w-acc-body{padding:4px 4px 20px;font-size:14px;color:var(--txt);line-height:1.75;border-top:none;background:transparent;display:none;transition:none}.w-acc-body.on{display:block}
+.w-acc-item{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden;transition:box-shadow .15s}
+.w-acc-hdr{padding:16px 20px;background:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--txt);transition:background .12s;user-select:none}
+.w-acc-hdr:hover{background:#EAECF5}.w-acc-hdr.on{color:var(--blue);background:var(--blue-ll)}
+.w-acc-chev{font-size:11px;color:var(--txts);transition:transform .22s}.w-acc-chev.on{transform:rotate(180deg)}
+.w-acc-body{padding:20px 24px;font-size:15px;color:var(--txt);line-height:1.8;border-top:1px solid var(--border-l);background:#fff}.w-acc-body.on{display:block}
 /* Accordion edit */
 .acc-row-edit{background:var(--off);border-radius:8px;margin-bottom:7px;overflow:hidden;border:1px solid var(--border-l)}
 .acc-hdr-edit{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--border-l)}
@@ -520,7 +509,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideUp{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
 /* ── BLOCK LIBRARY BAR ── */
-.block-panel{width:210px;min-width:210px;background:#FAFBFF;border-left:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden}
+.block-panel{width:168px;min-width:168px;background:#FAFBFF;border-left:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
 .block-panel-hdr{font-family:'Montserrat',sans-serif;font-weight:800;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--txts);padding:12px 12px 8px;border-bottom:1px solid var(--border-l);flex-shrink:0}
 .bp-cat-lbl{font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--txtm);padding:9px 12px 4px}
 .bp-cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 8px 6px}
@@ -567,7 +556,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .drop-zone{height:6px;background:transparent;transition:all .15s;border-radius:4px;margin:1px 0;position:relative}
 .drop-zone.over{height:44px;background:var(--blue-ll);border:2px dashed var(--blue-l);border-radius:6px}
 .drop-zone.over::after{content:'Drop here';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--blue)}
-/* blb-btn removed - replaced by tile grid */
+.blb-btn:hover .blb-name{color:var(--blue)}
 /* ── TEXT BLOCK FORMATTING TOOLBAR ── */
 .txt-fmt-bar{display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding:8px 12px;background:#fff;border:1px solid var(--border);border-radius:9px;margin-bottom:22px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
 .txt-fmt-group{display:flex;align-items:center;gap:4px}
@@ -603,9 +592,9 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .w-quote-role{font-size:13px;color:var(--txts);min-width:20px}
 .bw-theme .w-quote-role,.bw-dark .w-quote-role{color:rgba(255,255,255,.6)}
 /* ── PROCESS ── */
-.w-process{display:flex;align-items:flex-start;flex-wrap:wrap;gap:0;padding-bottom:8px}
+.w-process{display:flex;align-items:flex-start;overflow-x:auto;padding-bottom:8px;gap:0}
 .w-process-step-wrap{display:flex;align-items:center;flex-shrink:0}
-.w-process-step{background:#fff;border:1.5px solid var(--border-l);border-radius:10px;padding:20px 16px;width:160px;min-width:140px;text-align:center;transition:border-color var(--t1) var(--ease-out);position:relative}
+.w-process-step{background:#fff;border:2px solid var(--blue-l);border-radius:12px;padding:20px 16px;width:170px;text-align:center;transition:border-color .15s;position:relative}
 .bw-theme .w-process-step,.bw-dark .w-process-step{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18)}
 .w-process-step:hover{border-color:var(--blue)}
 .w-process-num{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;flex-shrink:0}
@@ -614,7 +603,7 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 .bw-theme .w-process-title,.bw-dark .w-process-title{color:#fff}
 .w-process-desc{font-size:12px;color:var(--txts);line-height:1.5;text-align:center;display:block;min-height:1em}
 .bw-theme .w-process-desc,.bw-dark .w-process-desc{color:rgba(255,255,255,.65)}
-.w-process-arrow{font-size:16px;color:var(--border-m);padding:0 6px;flex-shrink:0;display:flex;align-items:center;margin-top:24px}
+.w-process-arrow{font-size:22px;color:var(--blue-l);padding:0 10px;flex-shrink:0}
 .bw-theme .w-process-arrow,.bw-dark .w-process-arrow{color:rgba(255,255,255,.25)}
 ::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-thumb{background:rgba(0,0,0,.12);border-radius:2px}
 /* ── UNDO/REDO ICON BUTTONS ── */
@@ -651,196 +640,6 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 /* ── EXPORT/IMPORT SMALL BUTTONS ── */
 .btn-sm{background:var(--off);border:1.5px solid var(--border);border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:600;cursor:pointer;color:var(--txts);transition:all .15s;display:inline-flex;align-items:center;gap:4px}
 .btn-sm:hover{border-color:var(--blue);color:var(--blue)}
-
-/* ── PHASE 1: DESIGN SYSTEM ADDITIONS ── */
-
-/* Dashboard toolbar */
-.dash-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:24px;flex-wrap:wrap}
-.dash-search-wrap{position:relative;flex:1;max-width:320px}
-.dash-search{width:100%;padding:9px 12px 9px 36px;border:1.5px solid var(--border);border-radius:var(--r-m);font-family:'Inter',sans-serif;font-size:13px;color:var(--txt);background:#fff;outline:none;transition:border-color .15s}
-.dash-search:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-ll)}
-.dash-search::placeholder{color:var(--txtp)}
-.dash-filter-tabs{display:flex;gap:4px}
-.dash-filter-tab{padding:7px 14px;border-radius:20px;border:none;background:transparent;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;cursor:pointer;color:var(--txts);transition:all .12s}
-.dash-filter-tab:hover{background:var(--surface-2);color:var(--txt)}
-.dash-filter-tab.on{background:var(--blue-ll);color:var(--blue)}
-.dash-view-toggle{display:flex;border:1.5px solid var(--border);border-radius:var(--r-s);overflow:hidden;margin-left:auto}
-.dash-view-btn{width:32px;height:32px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--txts);transition:all .12s}
-.dash-view-btn.on{background:var(--blue-ll);color:var(--blue)}
-
-/* Dashboard list view */
-.course-list{display:flex;flex-direction:column;gap:8px}
-.course-list-item{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--border);border-radius:var(--r-m);padding:14px 18px;cursor:pointer;transition:all .15s}
-.course-list-item:hover{border-color:var(--blue-l);box-shadow:var(--shadow-s)}
-.course-list-color{width:10px;height:10px;border-radius:50%;flex-shrink:0;background:var(--blue)}
-.course-list-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--txt);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.course-list-meta{font-size:11px;color:var(--txts);white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600}
-.course-list-actions{display:flex;gap:6px}
-
-/* 3-dot card menu */
-.card-menu-btn{width:28px;height:28px;border-radius:6px;border:none;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .15s;flex-shrink:0}
-.card-menu-btn:hover{background:rgba(255,255,255,.3)}
-.card-menu-wrap{position:relative}
-.card-menu{position:absolute;top:calc(100% + 4px);right:0;background:#fff;border:1px solid var(--border);border-radius:var(--r-m);box-shadow:var(--shadow-l);z-index:200;min-width:150px;padding:4px;animation:fadeUp .15s ease}
-.card-menu-item{display:flex;align-items:center;gap:8px;width:100%;padding:8px 12px;border:none;background:transparent;cursor:pointer;border-radius:var(--r-s);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:var(--txt);text-align:left;transition:background .1s}
-.card-menu-item:hover{background:var(--surface-2)}
-.card-menu-item.danger{color:var(--red-d)}
-.card-menu-item.danger:hover{background:var(--red-bg)}
-.card-menu-div{height:1px;background:var(--border-l);margin:3px 8px}
-
-/* Top nav additions */
-.t-nav{display:flex;gap:2px;background:var(--surface-2);border-radius:20px;padding:3px}
-.t-nav-pill{padding:5px 14px;border-radius:18px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;cursor:pointer;border:none;background:transparent;color:var(--txts);transition:all .12s}
-.t-nav-pill.on{background:#fff;color:var(--blue);box-shadow:var(--shadow-xs)}
-.t-action-group{display:flex;align-items:center;gap:6px;padding-left:10px;border-left:1px solid var(--border-l);margin-left:4px}
-.t-more-btn{width:32px;height:32px;border:1.5px solid var(--border);border-radius:var(--r-s);background:#fff;color:var(--txts);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .15s;flex-shrink:0}
-.t-more-btn:hover{border-color:var(--blue-l);color:var(--blue);background:var(--blue-ll)}
-.t-more-menu{position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--border);border-radius:var(--r-m);box-shadow:var(--shadow-l);z-index:500;min-width:190px;padding:4px}
-.t-more-item{display:flex;align-items:center;gap:9px;width:100%;padding:8px 12px;border:none;background:transparent;cursor:pointer;border-radius:var(--r-s);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;color:var(--txt);text-align:left;transition:background .1s}
-.t-more-item:hover{background:var(--surface-2)}
-.t-more-div{height:1px;background:var(--border-l);margin:3px 8px}
-.t-more-wrap{position:relative}
-
-/* Autosave dot */
-.t-save-dot{width:6px;height:6px;border-radius:50%;background:var(--green-d);display:inline-block;margin-right:4px;flex-shrink:0;transition:background .3s}
-.t-save-dot.saving{background:var(--yellow-d);animation:savepulse 1s infinite}
-.t-save-dot.error{background:var(--red-d)}
-@keyframes savepulse{0%,100%{opacity:1}50%{opacity:.3}}
-
-/* Publish button */
-.btn-publish{background:var(--blue);color:#fff;border:none;padding:0 16px;height:34px;border-radius:var(--r-s);font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s;box-shadow:0 1px 3px rgba(64,110,241,.25);white-space:nowrap}
-.btn-publish:hover{background:var(--blue-d);box-shadow:0 2px 8px rgba(64,110,241,.35);transform:translateY(-1px)}
-
-/* Block library improvements */
-.blk-lib-header{padding:14px 14px 10px;border-bottom:1px solid var(--border-l);flex-shrink:0}
-.blk-lib-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--txt)}
-.blk-search-wrap{padding:8px 12px;border-bottom:1px solid var(--border-l);flex-shrink:0}
-.blk-search{width:100%;padding:8px 12px 8px 32px;border:none;border-radius:var(--r-s);font-family:'Inter',sans-serif;font-size:12px;color:var(--txt);background:var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2.5'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 10px center;outline:none;transition:background var(--t1)}
-.blk-search:focus{background-color:#fff;box-shadow:inset 0 0 0 1.5px var(--blue)}
-.blk-search::placeholder{color:var(--txtp)}
-.blk-cats{display:flex;gap:2px;padding:6px 8px;border-bottom:1px solid var(--border-l);flex-wrap:nowrap;overflow-x:auto;flex-shrink:0}
-.blk-cat{padding:4px 10px;border-radius:20px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;cursor:pointer;border:none;background:transparent;color:var(--txts);transition:all var(--t1) var(--ease-out);white-space:nowrap;flex-shrink:0}
-.blk-cat:hover{background:var(--surface-2);color:var(--txt)}
-.blk-cat.on{background:var(--blue-ll);color:var(--blue)}
-.blb-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:8px 8px 24px}
-.blb-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 8px 12px;border:1px solid transparent;border-radius:var(--r-m);background:var(--surface-2);cursor:grab;text-align:center;transition:border-color var(--t1) var(--ease-out),background var(--t1) var(--ease-out),box-shadow var(--t1) var(--ease-out),transform var(--t1) var(--ease-out);min-height:72px;gap:7px;user-select:none;width:100%}
-.blb-tile:hover{border-color:var(--blue-l);background:#fff;box-shadow:0 2px 10px rgba(64,110,241,.12);transform:translateY(-1px)}
-.blb-tile:active{cursor:grabbing;transform:none}
-.blb-tile-icon{width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0}
-.blb-tile-icon svg{width:18px;height:18px}
-.blb-tile-name{font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;color:var(--txt);line-height:1.3;text-align:center}
-.blb-scroll{flex:1;overflow-y:auto}
-.blb-section{padding:10px 8px 4px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--txtp)}
-
-/* Inline insertion zone */
-.insert-zone{display:flex;align-items:center;gap:0;height:24px;margin:0 16px;opacity:0;transition:opacity .2s;cursor:pointer;position:relative;z-index:5}
-.insert-zone:hover{opacity:1!important}
-.block-wrap:hover~.insert-zone{opacity:.5}
-.insert-zone-line{flex:1;height:1.5px;background:var(--blue);border-radius:1px}
-.insert-zone-btn{width:20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin:0 5px;box-shadow:var(--shadow-m);line-height:1}
-
-/* Publish modal */
-.modal-overlay{position:fixed;inset:0;background:rgba(15,20,40,.45);backdrop-filter:blur(4px);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px}
-.modal-box{background:#fff;border-radius:var(--r-xl);box-shadow:var(--shadow-l);width:100%;max-width:520px;max-height:88vh;overflow-y:auto;animation:fadeUp .2s ease}
-.modal-head{padding:24px 24px 0;display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
-.modal-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--txt)}
-.modal-close-btn{width:30px;height:30px;border:none;background:var(--surface-2);border-radius:50%;cursor:pointer;font-size:15px;color:var(--txts);display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;margin-top:-4px}
-.modal-close-btn:hover{background:var(--border);color:var(--txt)}
-.modal-body{padding:0 24px 24px}
-.modal-footer{padding:14px 24px 20px;border-top:1px solid var(--border-l);display:flex;justify-content:flex-end;gap:8px}
-.pub-section{margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border-l)}
-.pub-section:last-child{border-bottom:none;margin-bottom:0}
-.pub-section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--txts);margin-bottom:10px}
-.pub-check{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:var(--r-s);margin-bottom:4px;font-size:13px;font-family:'Inter',sans-serif}
-.pub-check.ok{background:var(--green-bg);color:#065F46}
-.pub-check.warn{background:var(--yellow-bg);color:#78350F}
-.pub-check.err{background:var(--red-bg);color:#7F1D1D}
-.pub-select{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--r-s);font-family:'Inter',sans-serif;font-size:13px;color:var(--txt);background:#fff;outline:none;cursor:pointer;margin-bottom:10px}
-.pub-select:focus{border-color:var(--blue)}
-.pub-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts);display:block;margin-bottom:6px}
-
-/* New course modal step improvements */
-.nc-steps{display:flex;gap:2px;margin-bottom:20px}
-.nc-step{flex:1;height:3px;border-radius:2px;background:var(--border);transition:background .3s}
-.nc-step.done{background:var(--blue)}
-.start-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px}
-.start-option{padding:16px 14px;border:2px solid var(--border);border-radius:var(--r-l);cursor:pointer;transition:all .15s;background:#fff;text-align:left;width:100%}
-.start-option:hover{border-color:var(--blue-l);background:var(--blue-ll)}
-.start-option.on{border-color:var(--blue);background:var(--blue-ll)}
-.start-option-icon{font-size:22px;margin-bottom:8px;display:block}
-.start-option-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--txt);margin-bottom:3px}
-.start-option-desc{font-size:11px;color:var(--txts);line-height:1.45}
-.form-field{margin-bottom:14px}
-.form-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
-.form-input{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--r-s);font-family:'Inter',sans-serif;font-size:14px;color:var(--txt);background:#fff;outline:none;transition:border-color .15s}
-.form-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-ll)}
-.form-input::placeholder{color:var(--txtp)}
-.form-textarea{resize:vertical;min-height:68px;line-height:1.6}
-
-/* ── THEME PANEL ── */
-.theme-panel{display:flex;flex-direction:column;height:100%;overflow:hidden}
-.theme-panel-head{padding:16px;border-bottom:1px solid var(--border-l);flex-shrink:0}
-.theme-panel-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--txt);margin-bottom:2px}
-.theme-panel-sub{font-size:11px;color:var(--txts)}
-.theme-panel-body{flex:1;overflow-y:auto;padding:8px 0 24px}
-.theme-section{padding:14px 16px;border-bottom:1px solid var(--border-l)}
-.theme-section:last-child{border-bottom:none}
-.theme-section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--txts);margin-bottom:12px}
-.theme-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.theme-row:last-child{margin-bottom:0}
-.theme-label{font-size:12px;color:var(--txt);font-family:'Inter',sans-serif}
-.theme-color{width:32px;height:32px;border-radius:var(--r-s);border:2px solid var(--border);cursor:pointer;overflow:hidden;padding:0;background:transparent}
-.theme-color input[type=color]{width:100%;height:100%;border:none;cursor:pointer;padding:0;margin:0;background:transparent;-webkit-appearance:none}
-.theme-select{padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--r-s);font-family:'Inter',sans-serif;font-size:12px;color:var(--txt);background:#fff;outline:none;cursor:pointer;min-width:110px}
-.theme-select:focus{border-color:var(--blue)}
-.theme-range{-webkit-appearance:none;appearance:none;width:100%;height:3px;border-radius:2px;background:var(--border);outline:none;cursor:pointer}
-.theme-range::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--blue);border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.18);cursor:pointer}
-.theme-swatch-row{display:flex;gap:6px;flex-wrap:wrap}
-.theme-swatch{width:26px;height:26px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .15s}
-.theme-swatch:hover{transform:scale(1.15)}
-.theme-swatch.on{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-ll)}
-
-/* ── SETTINGS PANEL ── */
-.settings-panel{display:flex;flex-direction:column;height:100%;overflow:hidden}
-.settings-panel-head{padding:16px;border-bottom:1px solid var(--border-l);flex-shrink:0}
-.settings-panel-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--txt);margin-bottom:2px}
-.settings-panel-body{flex:1;overflow-y:auto;padding:8px 0 24px}
-.settings-section{padding:14px 16px;border-bottom:1px solid var(--border-l)}
-.settings-section:last-child{border-bottom:none}
-.settings-section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--txts);margin-bottom:12px}
-.settings-field{margin-bottom:10px}
-.settings-field:last-child{margin-bottom:0}
-.settings-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts);display:block;margin-bottom:5px}
-.settings-input{width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r-s);font-family:'Inter',sans-serif;font-size:13px;color:var(--txt);background:#fff;outline:none;transition:border-color .15s}
-.settings-input:focus{border-color:var(--blue)}
-.settings-textarea{resize:vertical;min-height:60px;line-height:1.5}
-.settings-radio-group{display:flex;flex-direction:column;gap:7px}
-.settings-radio{display:flex;align-items:flex-start;gap:8px;cursor:pointer}
-.settings-radio input[type=radio]{accent-color:var(--blue);margin-top:2px;flex-shrink:0;cursor:pointer}
-.settings-radio-label{font-size:12px;color:var(--txt);line-height:1.4}
-.settings-radio-label span{display:block;font-size:11px;color:var(--txts);margin-top:1px}
-.settings-toggle-row{display:flex;align-items:center;justify-content:space-between;padding:3px 0}
-.settings-toggle{position:relative;width:36px;height:20px;flex-shrink:0}
-.settings-toggle input{opacity:0;width:0;height:0}
-.settings-toggle-slider{position:absolute;inset:0;background:var(--border);border-radius:10px;cursor:pointer;transition:background .2s}
-.settings-toggle-slider::before{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
-.settings-toggle input:checked+.settings-toggle-slider{background:var(--blue)}
-.settings-toggle input:checked+.settings-toggle-slider::before{transform:translateX(16px)}
-
-/* ── LESSON FOOTER ACTIONS ── */
-.lesson-footer-actions{display:flex;align-items:center;gap:8px;padding:16px 64px 32px;max-width:780px;margin:0 auto;width:100%}
-.lesson-footer-btn{padding:7px 16px;border:1.5px solid var(--border-m);border-radius:20px;background:#fff;color:var(--txts);font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;cursor:pointer;transition:all .15s}
-.lesson-footer-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-ll)}
-.add-lesson-bottom{display:none}
-
-/* ── LESSON EMPTY STATE ── */
-.lesson-empty{padding:40px 64px 32px;max-width:780px;margin:0 auto;width:100%}
-.lesson-empty-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--txts);margin-bottom:16px;text-align:center}
-.lesson-empty-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.lesson-empty-opt{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 14px;border:1.5px dashed var(--border);border-radius:var(--r-l);background:#fff;cursor:pointer;transition:all .15s;font-family:'Montserrat',sans-serif}
-.lesson-empty-opt:hover{border-color:var(--blue);background:var(--blue-ll);border-style:solid}
-.lesson-empty-opt-icon{font-size:22px}
-.lesson-empty-opt-label{font-weight:700;font-size:11px;color:var(--txt)}
 </style>
 </head>
 <body>
@@ -856,58 +655,22 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
     <div class="dash-header">
       <div class="dash-header-left"><h1>My Courses</h1><p>Build, preview, and export SCORM-ready elearning for Sales and CS.</p></div>
     </div>
-    <div class="dash-toolbar">
-      <div class="dash-search-wrap">
-        <input class="dash-search" v-model="dashSearch" placeholder="Search courses…" />
-      </div>
-      <div class="dash-filter-tabs">
-        <button :class="['dash-filter-tab',dashFilter==='all'?'on':'']" @click="dashFilter='all'">All</button>
-        <button :class="['dash-filter-tab',dashFilter==='recent'?'on':'']" @click="dashFilter='recent'">Recent</button>
-      </div>
-      <div class="dash-view-toggle">
-        <button :class="['dash-view-btn',dashView==='grid'?'on':'']" @click="dashView='grid'" title="Grid view">⊞</button>
-        <button :class="['dash-view-btn',dashView==='list'?'on':'']" @click="dashView='list'" title="List view">☰</button>
+    <div v-if="savedCourses.length>0" class="course-grid">
+      <div v-for="c in savedCourses" :key="c.id" class="course-card" @click="openCourseFromDashboard(c)">
+        <div class="course-card-cover"><div class="course-card-cover-title">{{c.title||'Untitled Course'}}</div></div>
+        <div class="course-card-body">
+          <div class="course-card-sub">{{c.subtitle||'No description yet.'}}</div>
+          <div class="course-card-meta">
+            <div><div class="course-card-stat">{{courseStats(c)}}</div><div class="course-card-stat" style="font-weight:400;color:var(--txtm);margin-top:2px">{{formatDate(c.updatedAt)}}</div></div>
+            <div class="course-card-actions">
+              <button class="card-btn card-btn-del" @click="deleteCourseFromDashboard(c.id,$event)">🗑</button>
+              <button class="card-btn card-btn-open" @click.stop="openCourseFromDashboard(c)" style="background:var(--blue);color:#fff;border-color:var(--blue);font-weight:700;padding:6px 14px">Open →</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <template v-if="filteredCourses.length>0">
-      <div v-if="dashView==='grid'" class="course-grid">
-        <div v-for="c in filteredCourses" :key="c.id" class="course-card" @click="openCourseFromDashboard(c)">
-          <div class="course-card-cover">
-            <div class="course-card-cover-title">{{c.title||'Untitled Course'}}</div>
-            <div class="card-menu-wrap" style="position:absolute;top:10px;right:10px" @click.stop>
-              <button class="card-menu-btn" @click.stop="showCardMenu=showCardMenu===c.id?null:c.id">···</button>
-              <div class="card-menu" v-if="showCardMenu===c.id">
-                <button class="card-menu-item" @click.stop="openCourseFromDashboard(c);showCardMenu=null">Open</button>
-                <button class="card-menu-item" @click.stop="dupCourseFromDash(c);showCardMenu=null">⧉ Duplicate</button>
-                <div class="card-menu-div"></div>
-                <button class="card-menu-item danger" @click.stop="deleteCourseFromDashboard(c.id,$event);showCardMenu=null">🗑 Delete</button>
-              </div>
-            </div>
-          </div>
-          <div class="course-card-body">
-            <div class="course-card-sub">{{c.subtitle||'No description yet.'}}</div>
-            <div class="course-card-meta">
-              <div><div class="course-card-stat">{{courseStats(c)}}</div><div class="course-card-stat" style="font-weight:400;color:var(--txtm);margin-top:2px">{{formatDate(c.updatedAt)}}</div></div>
-              <div class="course-card-actions">
-                <button class="card-btn card-btn-open" @click.stop="openCourseFromDashboard(c)" style="background:var(--blue);color:#fff;border-color:var(--blue);font-weight:700;padding:6px 14px">Open →</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div v-else class="course-list">
-        <div v-for="c in filteredCourses" :key="c.id" class="course-list-item" @click="openCourseFromDashboard(c)">
-          <div class="course-list-color"></div>
-          <div class="course-list-title">{{c.title||'Untitled Course'}}</div>
-          <div class="course-list-meta">{{courseStats(c)}} · {{formatDate(c.updatedAt)}}</div>
-          <div class="course-list-actions">
-            <button class="card-btn card-btn-del" @click.stop="deleteCourseFromDashboard(c.id,$event)">🗑</button>
-            <button class="card-btn card-btn-open" @click.stop="openCourseFromDashboard(c)" style="background:var(--blue);color:#fff;border-color:var(--blue);font-weight:700;padding:6px 14px">Open →</button>
-          </div>
-        </div>
-      </div>
-    </template>
-    <div v-if="!filteredCourses.length" class="dash-empty">
+    <div v-else class="dash-empty">
       <div class="dash-empty-icon">✦</div>
       <h2>No courses yet</h2>
       <p>Create your first course and start building with interactive blocks.</p>
@@ -915,258 +678,65 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
     </div>
   </div>
   <div class="overlay" v-if="showNewCourse" @click.self="showNewCourse=false">
-    <div class="modal" style="width:500px">
+    <div class="modal" style="width:460px">
       <div class="modal-head"><span class="modal-ttl">New Course</span><button class="modal-close" @click="showNewCourse=false">✕</button></div>
       <div class="modal-body">
-        <div class="nc-steps">
-          <div :class="['nc-step','done']"></div>
-          <div :class="['nc-step',newCourseStep>=2?'done':'']"></div>
-        </div>
-        <!-- Step 1: choose start mode -->
-        <template v-if="newCourseStep===1">
-          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--txt);margin-bottom:14px">How would you like to start?</div>
-          <div class="start-options">
-            <button :class="['start-option',newCourseMode==='blank'?'on':'']" @click.stop="newCourseMode='blank';selectedTemplate=null;newCourseForm.title=''">
-              <span class="start-option-icon">✦</span>
-              <div class="start-option-title">Blank Course</div>
-              <div class="start-option-desc">Start from scratch with a clean slate</div>
-            </button>
-            <button :class="['start-option',newCourseMode==='template'?'on':'']" @click.stop="newCourseMode='template'">
-              <span class="start-option-icon">📋</span>
-              <div class="start-option-title">Use a Template</div>
-              <div class="start-option-desc">Start with a proven course structure</div>
-            </button>
-          </div>
-          <template v-if="newCourseMode==='template'">
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--txts);margin:16px 0 8px">Choose a template</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <div v-for="t in COURSE_TEMPLATES" :key="t.id"
-                   :style="{border:'1.5px solid '+(selectedTemplate&&selectedTemplate.id===t.id?'var(--blue)':'var(--border)'),background:selectedTemplate&&selectedTemplate.id===t.id?'var(--blue-ll)':'#fff'}"
-                   style="border-radius:8px;padding:9px 12px;cursor:pointer;flex:1;min-width:130px;transition:all .15s"
-                   @click.stop="selectedTemplate=t;newCourseForm.title=t.name;newCourseForm.subtitle=t.subtitle">
-                <div style="font-size:18px;margin-bottom:3px">{{t.emoji}}</div>
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txt)">{{t.name}}</div>
+        <div style="margin-bottom:16px">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--txts);margin-bottom:8px">Start from a template</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+            <div v-for="t in COURSE_TEMPLATES" :key="t.id"
+                 :style="{border:'1.5px solid '+(selectedTemplate&&selectedTemplate.id===t.id?'var(--blue)':'var(--border)'),background:selectedTemplate&&selectedTemplate.id===t.id?'var(--blue-ll)':'#fff'}"
+                 style="border-radius:8px;padding:9px 12px;cursor:pointer;flex:1;min-width:130px;transition:all .15s"
+                 @click.stop="selectedTemplate=t;newCourseForm.title=t.name;newCourseForm.subtitle=t.subtitle">
+              <div style="font-size:18px;margin-bottom:3px">{{t.emoji}}</div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txt)">{{t.name}}</div>
+            </div>
+            <div :style="{border:'1.5px solid '+(selectedTemplate===null?'var(--blue)':'var(--border)'),background:selectedTemplate===null?'var(--blue-ll)':'#fff'}"
+                 style="border-radius:8px;padding:9px 12px;cursor:pointer;flex:1;min-width:100px;display:flex;align-items:center;justify-content:center;transition:all .15s"
+                 @click.stop="selectedTemplate=null;newCourseForm.title=''">
+              <div style="text-align:center">
+                <div style="font-size:18px;margin-bottom:3px">✦</div>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--txts)">Blank</div>
               </div>
             </div>
-          </template>
-        </template>
-        <!-- Step 2: course details -->
-        <template v-else>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--txt);margin-bottom:14px">Course details</div>
-          <div class="p-section"><span class="p-lbl">Course Title *</span><input class="p-input" v-model="newCourseForm.title" placeholder="e.g. Discovery Best Practices for AEs" @keydown.enter="startNewCourse" /></div>
-          <div class="p-section"><span class="p-lbl">Subtitle / Description</span><textarea class="p-input p-ta" v-model="newCourseForm.subtitle" placeholder="What will learners get from this course?"></textarea></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <div class="p-section"><span class="p-lbl">Audience</span><input class="p-input" v-model="newCourseForm.audience" placeholder="AEs, CSMs, both…" /></div>
-            <div class="p-section"><span class="p-lbl">Duration</span><input class="p-input" v-model="newCourseForm.duration" placeholder="e.g. 20 min" /></div>
           </div>
-        </template>
+        </div>
+        <div class="p-section"><span class="p-lbl">Course Title *</span><input class="p-input" v-model="newCourseForm.title" placeholder="e.g. Discovery Best Practices for AEs" @keydown.enter="startNewCourse" /></div>
+        <div class="p-section"><span class="p-lbl">Subtitle / Description</span><textarea class="p-input p-ta" v-model="newCourseForm.subtitle" placeholder="What will learners get from this course?"></textarea></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="p-section"><span class="p-lbl">Audience</span><input class="p-input" v-model="newCourseForm.audience" placeholder="AEs, CSMs, both…" /></div>
+          <div class="p-section"><span class="p-lbl">Duration</span><input class="p-input" v-model="newCourseForm.duration" placeholder="e.g. 20 min" /></div>
+        </div>
       </div>
-      <div class="modal-foot">
-        <button class="btn btn-ghost" @click="newCourseStep===1?showNewCourse=false:newCourseStep=1">{{newCourseStep===1?'Cancel':'← Back'}}</button>
-        <button class="btn btn-blue" @click="newCourseStep===1?newCourseStep=2:startNewCourse()">{{newCourseStep===1?'Next →':'Create Course →'}}</button>
-      </div>
+      <div class="modal-foot"><button class="btn btn-ghost" @click="showNewCourse=false">Cancel</button><button class="btn btn-blue" @click="startNewCourse">Create Course →</button></div>
     </div>
   </div>
 </div>
 
 <!-- ═══ BUILDER ═══ -->
 <template v-else>
-<div class="topbar" v-if="view==='builder'">
-  <button class="t-back" @click="openDashboard">← Courses</button>
-  <div class="t-logo"><div class="t-logo-mark">S</div></div>
+<div class="topbar">
+  <button class="t-back" @click="openDashboard">← My Courses</button>
   <div class="t-div"></div>
-  <input class="t-title" v-model="course.title" placeholder="Course title…" @change="saveCurrentCourse()" />
-  <div style="display:flex;align-items:center;gap:5px;margin:0 8px">
-    <span :class="['t-save-dot',saveStatus==='saving'?'saving':saveStatus==='error'?'error':'']"></span>
-    <span class="t-save-status">{{saveStatus==='saving'?'Saving…':saveStatus==='error'?'Save failed':'Saved'}}</span>
-  </div>
-  <div class="t-nav" style="margin:0 auto">
-    <button :class="['t-nav-pill',activeNav==='build'?'on':'']" @click="activeNav='build'">Build</button>
-    <button :class="['t-nav-pill',activeNav==='theme'?'on':'']" @click="activeNav='theme'">Theme</button>
-    <button :class="['t-nav-pill',activeNav==='settings'?'on':'']" @click="activeNav='settings'">Settings</button>
-  </div>
+  <div class="t-logo"><div class="t-logo-mark">S</div><span class="t-logo-name">Course Builder</span></div>
+  <div class="t-div"></div>
+  <input class="t-title" v-model="course.title" placeholder="Course title…" />
   <div class="t-right">
-    <button class="btn btn-ghost" style="padding:0 10px;height:32px" @click="undoAction" :disabled="!canUndo" title="Undo">↩</button>
-    <button class="btn btn-ghost" style="padding:0 10px;height:32px" @click="redoAction" :disabled="!canRedo" title="Redo">↪</button>
-    <div class="t-action-group">
-      <div class="t-more-wrap">
-        <button class="t-more-btn" @click="showMoreMenu=!showMoreMenu" title="More options">···</button>
-        <div class="t-more-menu" v-if="showMoreMenu" @click.stop>
-          <button class="t-more-item" @click="exportCourseJSON();showMoreMenu=false">⬇ Export JSON</button>
-          <button class="t-more-item" @click="$refs.jsonImport.click();showMoreMenu=false">⬆ Import JSON</button>
-          <div class="t-more-div"></div>
-          <button class="t-more-item" @click="dupCourse();showMoreMenu=false">⧉ Duplicate Course</button>
-        </div>
-        <input type="file" ref="jsonImport" accept=".json" style="display:none" @change="importCourseJSON" />
-      </div>
-      <button class="btn btn-ghost" style="padding:0 14px;height:34px" @click="openPreview">▷ Preview</button>
-      <button class="btn-publish" @click="showPublish=true">⬆ Publish</button>
-    </div>
+    <button class="t-icon-btn" @click="undoAction" :disabled="!canUndo" title="Undo (⌘Z)" style="font-size:18px">↩</button>
+    <button class="t-icon-btn" @click="redoAction" :disabled="!canRedo" title="Redo (⌘⇧Z)" style="font-size:18px">↪</button>
+    <span class="t-save-status" v-if="saveStatus">{{saveStatus}}</span>
+    <button class="btn-sm" @click="exportCourseJSON" title="Export as JSON file to share" style="font-size:11px;padding:5px 10px">⬇ Export JSON</button>
+    <label class="btn-sm" style="font-size:11px;padding:5px 10px;cursor:pointer" title="Import a course JSON file">
+      ⬆ Import<input type="file" accept=".json" style="display:none" @change="importCourseJSON($event)" />
+    </label>
+    <button class="btn btn-ghost" @click="openPreview">▶ Preview</button>
+    <button class="btn btn-green" @click="exportSCORM">⬇ Export SCORM</button>
   </div>
 </div>
 
-<div class="layout" :style="themeVars">
+<div class="layout">
   <!-- LEFT PANEL: Block Properties Panel when block selected, Course Outline otherwise -->
   <div class="outline">
-    <!-- THEME PANEL -->
-    <div class="theme-panel" v-if="activeNav==='theme'">
-      <div class="theme-panel-head">
-        <div class="theme-panel-title">Theme</div>
-        <div class="theme-panel-sub">Customize the course visual style</div>
-      </div>
-      <div class="theme-panel-body">
-        <div class="theme-section">
-          <div class="theme-section-title">Colors</div>
-          <div class="theme-row">
-            <span class="theme-label">Primary color</span>
-            <div class="theme-color"><input type="color" v-model="theme.primaryColor" /></div>
-          </div>
-          <div class="theme-row">
-            <span class="theme-label">Presets</span>
-            <div class="theme-swatch-row">
-              <div :class="['theme-swatch',theme.primaryColor==='#406EF1'?'on':'']" style="background:#406EF1" @click="theme.primaryColor='#406EF1'" title="Skai Blue"></div>
-              <div :class="['theme-swatch',theme.primaryColor==='#7C3AED'?'on':'']" style="background:#7C3AED" @click="theme.primaryColor='#7C3AED'" title="Purple"></div>
-              <div :class="['theme-swatch',theme.primaryColor==='#059669'?'on':'']" style="background:#059669" @click="theme.primaryColor='#059669'" title="Green"></div>
-              <div :class="['theme-swatch',theme.primaryColor==='#DC2626'?'on':'']" style="background:#DC2626" @click="theme.primaryColor='#DC2626'" title="Red"></div>
-              <div :class="['theme-swatch',theme.primaryColor==='#D97706'?'on':'']" style="background:#D97706" @click="theme.primaryColor='#D97706'" title="Amber"></div>
-              <div :class="['theme-swatch',theme.primaryColor==='#0891B2'?'on':'']" style="background:#0891B2" @click="theme.primaryColor='#0891B2'" title="Teal"></div>
-            </div>
-          </div>
-        </div>
-        <div class="theme-section">
-          <div class="theme-section-title">Typography</div>
-          <div class="theme-row">
-            <span class="theme-label">Heading font</span>
-            <select class="theme-select" v-model="theme.headingFont">
-              <option value="Montserrat">Montserrat</option>
-              <option value="Inter">Inter</option>
-              <option value="Georgia">Georgia</option>
-            </select>
-          </div>
-          <div class="theme-row">
-            <span class="theme-label">Body font</span>
-            <select class="theme-select" v-model="theme.bodyFont">
-              <option value="Inter">Inter</option>
-              <option value="Montserrat">Montserrat</option>
-              <option value="Georgia">Georgia</option>
-            </select>
-          </div>
-        </div>
-        <div class="theme-section">
-          <div class="theme-section-title">Shapes</div>
-          <div class="theme-row">
-            <span class="theme-label">Corner radius</span>
-            <div style="display:flex;align-items:center;gap:8px;flex:1;margin-left:16px">
-              <input type="range" class="theme-range" v-model.number="theme.cornerRadius" min="0" max="24" step="2" />
-              <span style="font-size:11px;color:var(--txts);min-width:24px">{{theme.cornerRadius}}px</span>
-            </div>
-          </div>
-        </div>
-        <div class="theme-section">
-          <div class="theme-section-title">Canvas</div>
-          <div class="theme-row">
-            <span class="theme-label">Background</span>
-            <select class="theme-select" v-model="theme.canvasBg">
-              <option value="#F0F2F8">Light blue-gray</option>
-              <option value="#F5F7FA">Light gray</option>
-              <option value="#FFFCFA">Warm white</option>
-              <option value="#ffffff">White</option>
-            </select>
-          </div>
-        </div>
-        <div class="theme-section">
-          <div class="theme-section-title">Lesson Header</div>
-          <div class="theme-row">
-            <span class="theme-label">Style</span>
-            <select class="theme-select" v-model="theme.lessonHeaderStyle">
-              <option value="gradient">Gradient</option>
-              <option value="solid">Solid color</option>
-              <option value="minimal">Minimal</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SETTINGS PANEL -->
-    <div class="settings-panel" v-else-if="activeNav==='settings'">
-      <div class="settings-panel-head">
-        <div class="settings-panel-title">Course Settings</div>
-      </div>
-      <div class="settings-panel-body">
-        <div class="settings-section">
-          <div class="settings-section-title">Course Details</div>
-          <div class="settings-field">
-            <label class="settings-label">Course Title</label>
-            <input class="settings-input" v-model="course.title" @change="saveCurrentCourse()" placeholder="Enter course title…" />
-          </div>
-          <div class="settings-field">
-            <label class="settings-label">Description</label>
-            <textarea class="settings-input settings-textarea" v-model="course.subtitle" @change="saveCurrentCourse()" placeholder="What is this course about?"></textarea>
-          </div>
-          <div class="settings-field">
-            <label class="settings-label">Audience</label>
-            <input class="settings-input" v-model="course.audience" @change="saveCurrentCourse()" placeholder="e.g., New Sales Reps" />
-          </div>
-          <div class="settings-field">
-            <label class="settings-label">Learning Objective</label>
-            <textarea class="settings-input settings-textarea" v-model="course.learningObjective" @change="saveCurrentCourse()" placeholder="What should learners be able to do after completing this?"></textarea>
-          </div>
-          <div class="settings-field">
-            <label class="settings-label">Estimated Duration</label>
-            <input class="settings-input" v-model="course.duration" @change="saveCurrentCourse()" placeholder="e.g., 30 min" />
-          </div>
-        </div>
-        <div class="settings-section">
-          <div class="settings-section-title">Navigation</div>
-          <div class="settings-radio-group">
-            <label class="settings-radio">
-              <input type="radio" v-model="courseSettings.navMode" value="free" @change="saveCurrentCourse()" />
-              <div class="settings-radio-label">Free navigation<span>Learners can access any lesson in any order</span></div>
-            </label>
-            <label class="settings-radio">
-              <input type="radio" v-model="courseSettings.navMode" value="sequential" @change="saveCurrentCourse()" />
-              <div class="settings-radio-label">Sequential<span>Learners must complete each lesson before advancing</span></div>
-            </label>
-          </div>
-          <div class="settings-toggle-row" style="margin-top:12px">
-            <span class="settings-label" style="margin-bottom:0">Show course outline in player</span>
-            <label class="settings-toggle">
-              <input type="checkbox" v-model="courseSettings.showOutline" @change="saveCurrentCourse()" />
-              <span class="settings-toggle-slider"></span>
-            </label>
-          </div>
-        </div>
-        <div class="settings-section">
-          <div class="settings-section-title">Completion</div>
-          <div class="settings-radio-group">
-            <label class="settings-radio">
-              <input type="radio" v-model="courseSettings.completionRule" value="all" @change="saveCurrentCourse()" />
-              <div class="settings-radio-label">Complete all lessons<span>Course is complete when all lessons are viewed</span></div>
-            </label>
-            <label class="settings-radio">
-              <input type="radio" v-model="courseSettings.completionRule" value="required" @change="saveCurrentCourse()" />
-              <div class="settings-radio-label">Complete required lessons<span>Only marked lessons count toward completion</span></div>
-            </label>
-          </div>
-        </div>
-        <div class="settings-section">
-          <div class="settings-section-title">Resume</div>
-          <div class="settings-radio-group">
-            <label class="settings-radio">
-              <input type="radio" v-model="courseSettings.resumeMode" value="resume" @change="saveCurrentCourse()" />
-              <div class="settings-radio-label">Resume from last location<span>Learners pick up where they left off</span></div>
-            </label>
-            <label class="settings-radio">
-              <input type="radio" v-model="courseSettings.resumeMode" value="restart" @change="saveCurrentCourse()" />
-              <div class="settings-radio-label">Restart each time<span>Progress resets on every launch</span></div>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <template v-else>
     <!-- BLOCK PROPERTIES PANEL -->
     <template v-if="selBlockObj">
       <div class="bpp">
@@ -1324,7 +894,6 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
       </div>
       <div class="ol-add-mod" @click="addModule">＋ Add Module</div>
     </template>
-    </template><!-- /v-else build mode -->
   </div>
 
   <!-- CANVAS -->
@@ -2005,57 +1574,33 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
         </div><!-- /block-list -->
 
         <!-- Empty lesson state -->
-        <div class="lesson-empty" v-if="!curLesson.blocks||curLesson.blocks.length===0">
-          <div class="lesson-empty-title">Start building this lesson</div>
-          <div class="lesson-empty-options">
-            <button class="lesson-empty-opt" @click="showAddBlock=true;insertAt=0">
-              <span class="lesson-empty-opt-icon">＋</span>
-              <span class="lesson-empty-opt-label">Add a block</span>
-            </button>
-            <button class="lesson-empty-opt" @click="showToast('Lesson templates coming soon')">
-              <span class="lesson-empty-opt-icon">📋</span>
-              <span class="lesson-empty-opt-label">Use a template</span>
-            </button>
-            <button class="lesson-empty-opt" @click="showToast('AI generation coming soon')">
-              <span class="lesson-empty-opt-icon">✦</span>
-              <span class="lesson-empty-opt-label">Generate with AI</span>
-            </button>
-          </div>
+        <div v-if="curLesson.blocks.length===0" style="padding:60px;text-align:center;color:var(--txtm);max-width:780px;margin:0 auto;width:100%">
+          <div style="font-size:40px;margin-bottom:14px;opacity:.35">&#10022;</div>
+          <p style="font-size:14px;line-height:1.7;max-width:280px;margin:0 auto">Add a block from the bar below to start building this lesson.</p>
         </div>
       </template>
 
-      <div v-if="selMod>=0" class="lesson-footer-actions">
-        <button class="lesson-footer-btn" @click.stop="showAddBlock=true;insertAt=curLesson?.blocks?.length??0">＋ Add block</button>
-        <button class="lesson-footer-btn" @click.stop="addLesson(selMod)">＋ New lesson</button>
-      </div>
+      <div v-if="selMod>=0" class="add-lesson-bottom" @click.stop="addLesson(selMod)">＋ Add Another Lesson to this Module</div>
     </div>
   </div>
   <!-- RIGHT BLOCK PANEL -->
-  <div class="block-panel" v-if="curLesson" v-show="activeNav==='build'"
+  <div class="block-panel" v-if="curLesson"
        @dragover.prevent @drop.prevent="endDrag()">
-    <div class="blk-lib-header"><span class="blk-lib-title">Add Block</span></div>
-    <div class="blk-search-wrap">
-      <input class="blk-search" v-model="blkSearch" placeholder="Search blocks…" />
-    </div>
-    <div class="blk-cats">
-      <button v-for="cat in ['All','Content','Media','Interactive']" :key="cat"
-              :class="['blk-cat',blkCategory===cat?'on':'']"
-              @click="blkCategory=cat">{{cat}}</button>
-    </div>
-    <div class="blb-scroll">
-      <div class="blb-grid">
-        <div v-for="w in filteredWidgets" :key="w.type"
-             class="blb-tile"
-             draggable="true"
-             @dragstart="startDrag(w.type,$event)"
-             @dragend="endDrag()"
-             @click="confirmAddBlock(w.type)"
-             :title="w.desc">
-          <div class="blb-tile-icon" v-html="getBlockIcon(w.type)"></div>
-          <div class="blb-tile-name">{{w.label}}</div>
-        </div>
+    <div class="block-panel-hdr">Add Block</div>
+    <template v-for="cat in ['Content','Media','Interactive']" :key="cat">
+      <div class="bp-cat-lbl">{{cat}}</div>
+      <div class="bp-cat-grid">
+        <button v-for="w in WIDGETS.filter(x=>x.category===cat)" :key="w.type"
+                class="bp-item" draggable="true"
+                @dragstart="startDrag(w.type,$event)"
+                @dragend="endDrag()"
+                @click="confirmAddBlock(w.type)"
+                :title="w.desc">
+          <span class="bp-icon">{{w.icon}}</span>
+          <span class="bp-name">{{w.label}}</span>
+        </button>
       </div>
-    </div>
+    </template>
   </div>
 </div>
 
@@ -2070,63 +1615,10 @@ body{font-family:'Inter',sans-serif;background:#fff;height:100%;overflow:hidden;
 </div>
 </template>
 
-<!-- PUBLISH MODAL -->
-<div class="modal-overlay" v-if="showPublish" @click.self="showPublish=false">
-  <div class="modal-box">
-    <div class="modal-head">
-      <div class="modal-title">Publish Course</div>
-      <button class="modal-close-btn" @click="showPublish=false">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="pub-section">
-        <div class="pub-section-title">Validation</div>
-        <div :class="['pub-check', course.title?'ok':'err']">{{course.title?'✓':'✕'}} Course has a title</div>
-        <div :class="['pub-check', course.modules.length?'ok':'err']">{{course.modules.length?'✓':'✕'}} Course has modules</div>
-        <div :class="['pub-check', totalLessons>0?'ok':'warn']">{{totalLessons>0?'✓':'⚠'}} Course has {{totalLessons}} lesson{{totalLessons!==1?'s':''}}</div>
-      </div>
-      <div class="pub-section">
-        <div class="pub-section-title">SCORM Settings</div>
-        <label class="pub-label">SCORM Version</label>
-        <select class="pub-select">
-          <option>SCORM 1.2 (recommended)</option>
-          <option>SCORM 2004</option>
-        </select>
-        <label class="pub-label">Completion Rule</label>
-        <select class="pub-select">
-          <option>Complete all lessons</option>
-          <option>Pass the assessment</option>
-          <option>View any content</option>
-        </select>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-ghost" @click="showPublish=false">Cancel</button>
-      <button class="btn-publish" @click="exportSCORM();showPublish=false">⬇ Export SCORM Package</button>
-    </div>
-  </div>
-</div>
-
 <div class="toast" v-if="toast">{{toast}}</div>
 </div>
 
 <script>
-const BLOCK_ICONS={
-  'statement':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="5" x2="16" y2="5"/><line x1="2" y1="9" x2="12" y2="9"/><line x1="2" y1="13" x2="9" y2="13"/></svg>`,
-  'quote':`<svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><path d="M2 3.5C2 2.67 2.67 2 3.5 2H7c.83 0 1.5.67 1.5 1.5V8L6 12H4l2-4H3.5C2.67 8 2 7.33 2 6.5V3.5zm8 0C10 2.67 10.67 2 11.5 2H15c.83 0 1.5.67 1.5 1.5V8L14 12h-2l2-4h-2.5C10.67 8 10 7.33 10 6.5V3.5z" opacity=".7"/></svg>`,
-  'story-screen':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="14" height="11" rx="1.5"/><line x1="5.5" y1="15.5" x2="12.5" y2="15.5"/><line x1="9" y1="13" x2="9" y2="15.5"/></svg>`,
-  'process':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="3" cy="9" r="2"/><circle cx="9" cy="9" r="2"/><circle cx="15" cy="9" r="2"/><line x1="5" y1="9" x2="7" y2="9"/><line x1="11" y1="9" x2="13" y2="9"/></svg>`,
-  'image-block':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="14" height="12" rx="1.5"/><circle cx="6.5" cy="7.5" r="1.5"/><path d="M2 13.5l4-4 3 3 2-2 5 4.5"/></svg>`,
-  'video-block':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3.5" width="10" height="11" rx="1.5"/><path d="M11.5 7.5l5-2.5v7.5l-5-2.5V7.5z"/></svg>`,
-  'flip-card':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="9" height="12" rx="1.5"/><rect x="7" y="2" width="9" height="12" rx="1.5" opacity=".45"/><path d="M13 5.5l1.5 1.5-1.5 1.5"/></svg>`,
-  'tab-stack':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="14" height="9" rx="1.5"/><path d="M2 7V5h4v2"/><path d="M6 7V5h4v2"/></svg>`,
-  'accordion':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="14" height="4" rx="1"/><rect x="2" y="7" width="14" height="4" rx="1"/><rect x="2" y="12" width="14" height="4" rx="1"/><path d="M13 4h1.5M13 9h1.5M13 14h1.5"/></svg>`,
-  'knowledge-check':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8.5c0-1.1.9-2 2-2s2 .9 2 2c0 1.5-2 2-2 3"/><circle cx="9" cy="14" r=".5" fill="currentColor"/><rect x="2" y="2" width="14" height="14" rx="2"/></svg>`,
-  'match-pair':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="6" height="4" rx="1"/><rect x="11" y="4" width="6" height="4" rx="1"/><rect x="1" y="10" width="6" height="4" rx="1"/><rect x="11" y="10" width="6" height="4" rx="1"/><line x1="7" y1="6" x2="11" y2="12" opacity=".5"/><line x1="7" y1="12" x2="11" y2="6" opacity=".5"/></svg>`,
-  'reflection-card':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="14" height="10" rx="1.5"/><line x1="5" y1="7" x2="13" y2="7"/><line x1="5" y1="10" x2="10" y2="10"/></svg>`,
-  'drop-a-word':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="5" height="3" rx="1.5"/><rect x="7.5" y="5.5" width="5" height="3" rx="1.5"/><rect x="13" y="3" width="4" height="3" rx="1.5"/><rect x="2.5" y="10" width="5" height="3" rx="1.5"/><rect x="9" y="11.5" width="6" height="3" rx="1.5"/></svg>`,
-  'decision-branch':`<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="4" r="2"/><line x1="9" y1="6" x2="9" y2="8"/><path d="M9 8L5 11M9 8l4 3"/><circle cx="5" cy="13" r="2"/><circle cx="13" cy="13" r="2"/></svg>`,
-};
-function getBlockIcon(type){return BLOCK_ICONS[type]||'<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="12" height="12" rx="2"/></svg>';}
 const {createApp,ref,reactive,computed,watch,nextTick,onMounted}=Vue;
 function uid(){return Math.random().toString(36).slice(2,9)}
 function ceUpdate(e,obj,key){obj[key]=(e.target.innerText||'').replace(/\n$/,'')}
@@ -2231,23 +1723,6 @@ const COURSE_TEMPLATES=[
   ]}
 ];
 
-function hexToHSL(hex){
-  let r=parseInt(hex.slice(1,3),16)/255,g=parseInt(hex.slice(3,5),16)/255,b=parseInt(hex.slice(5,7),16)/255;
-  let max=Math.max(r,g,b),min=Math.min(r,g,b),h,s,l=(max+min)/2;
-  if(max===min){h=s=0}else{
-    const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);
-    switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;break}
-    h/=6;
-  }
-  return[Math.round(h*360),Math.round(s*100),Math.round(l*100)];
-}
-function hslToHex(h,s,l){
-  s/=100;l/=100;const a=s*Math.min(l,1-l);
-  function f(n){const k=(n+h/30)%12,c=l-a*Math.max(Math.min(k-3,9-k,1),-1);return Math.round(255*c).toString(16).padStart(2,'0')}
-  return'#'+f(0)+f(8)+f(4);
-}
-function colorVariant(hex,adj){try{const[h,s,l]=hexToHSL(hex);return hslToHex(h,Math.max(0,s+adj[1]),Math.max(0,Math.min(100,l+adj[0])));}catch(e){return hex}}
-
 const app=createApp({
   setup(){
     const view=ref('dashboard');
@@ -2256,7 +1731,7 @@ const app=createApp({
     const newCourseForm=reactive({title:'',subtitle:'',audience:'',duration:''});
     const currentCourseId=ref(null);
     const saveStatus=ref('');
-    const course=reactive({id:'',title:'',subtitle:'',duration:'',audience:'',learningObjective:'',modules:[]});
+    const course=reactive({id:'',title:'',subtitle:'',duration:'',audience:'',modules:[]});
     const selMod=ref(-1);const selLes=ref(-1);const selBlock=ref(null);
 const cardFlip=reactive({}); // card.id -> true=showing back
 const activeTab=reactive({}); // block/item id -> active tab index or open state
@@ -2280,44 +1755,8 @@ function dropBlock(idx){
     const openMods=reactive({});
     const showAddBlock=ref(false);const showPreview=ref(false);const toast=ref(null);
     const showTemplates=ref(false);const selectedTemplate=ref(null);
-    const insertAt=ref(-1);
+    const insertAt=ref(0);
     const blockListRef=ref(null);const moduleListRef=ref(null);
-    const showMoreMenu=ref(false);
-    const dashSearch=ref('');
-    const dashFilter=ref('all');
-    const dashView=ref('grid');
-    const blkSearch=ref('');
-    const blkCategory=ref('All');
-    const newCourseStep=ref(1);
-    const newCourseMode=ref('blank');
-    const showPublish=ref(false);
-    const showCardMenu=ref(null);
-    const activeNav=ref('build');
-    const theme=reactive({
-      primaryColor:'#406EF1',
-      headingFont:'Montserrat',
-      bodyFont:'Inter',
-      cornerRadius:10,
-      canvasBg:'#F0F2F8',
-      lessonHeaderStyle:'gradient',
-      buttonStyle:'filled',
-    });
-    const courseSettings=reactive({
-      navMode:'free',
-      showOutline:true,
-      completionRule:'all',
-      resumeMode:'resume',
-    });
-    const themeVars=computed(()=>({
-      '--blue':theme.primaryColor,
-      '--blue-d':colorVariant(theme.primaryColor,[0,-10]),
-      '--blue-l':colorVariant(theme.primaryColor,[35,-25]),
-      '--blue-ll':colorVariant(theme.primaryColor,[52,-40]),
-      '--r-m':theme.cornerRadius+'px',
-      '--r-l':(theme.cornerRadius+4)+'px',
-      '--r-s':(Math.max(4,theme.cornerRadius-4))+'px',
-      '--canvas-bg':theme.canvasBg,
-    }));
 
     // ── SORTABLE ──
     let _blockSortable=null,_modSortable=null,_lesSortables=[];
@@ -2406,7 +1845,7 @@ function dropBlock(idx){
       return q;
     }
     function openCourseFromDashboard(c){
-      course.id=c.id;course.title=c.title||'';course.subtitle=c.subtitle||'';course.duration=c.duration||'';course.audience=c.audience||'';course.learningObjective=c.learningObjective||'';
+      course.id=c.id;course.title=c.title||'';course.subtitle=c.subtitle||'';course.duration=c.duration||'';course.audience=c.audience||'';
       const mods=JSON.parse(JSON.stringify(c.modules||[]));
       // Normalize all quiz questions to ensure required fields exist
       mods.forEach(mod=>(mod.lessons||[]).forEach(les=>(les.blocks||[]).forEach(b=>{
@@ -2436,47 +1875,26 @@ function dropBlock(idx){
         if((e.metaKey||e.ctrlKey)&&!e.shiftKey&&e.key==='z'){e.preventDefault();undoAction();}
         else if((e.metaKey||e.ctrlKey)&&(e.key==='y'||(e.shiftKey&&e.key==='z'))){e.preventDefault();redoAction();}
       });
-      document.addEventListener('click',()=>{showMoreMenu.value=false;showCardMenu.value=null;});
     });
     function startNewCourse(){
       if(!newCourseForm.title.trim()){showToast('Please enter a course title.');return;}
       const id=uid();
-      const c={id,title:newCourseForm.title.trim(),subtitle:newCourseForm.subtitle.trim(),audience:newCourseForm.audience.trim(),duration:newCourseForm.duration.trim(),learningObjective:'',
+      const c={id,title:newCourseForm.title.trim(),subtitle:newCourseForm.subtitle.trim(),audience:newCourseForm.audience.trim(),duration:newCourseForm.duration.trim(),
         modules:selectedTemplate.value?JSON.parse(JSON.stringify(selectedTemplate.value.modules)).map(m=>({...m,id:uid(),lessons:(m.lessons||[]).map(l=>({...l,id:uid(),blocks:(l.blocks||[]).map(b=>({...b,id:uid()}))}))})):[],
         createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
       const courses=loadCourses();courses.unshift(c);saveCourses(courses);savedCourses.value=courses;
-      showNewCourse.value=false;newCourseStep.value=1;newCourseMode.value='blank';newCourseForm.title='';newCourseForm.subtitle='';newCourseForm.audience='';newCourseForm.duration='';
+      showNewCourse.value=false;newCourseForm.title='';newCourseForm.subtitle='';newCourseForm.audience='';newCourseForm.duration='';
       selectedTemplate.value=null;
       openCourseFromDashboard(c);
     }
     function deleteCourseFromDashboard(id,e){e.stopPropagation();if(!confirm('Delete this course?'))return;const courses=loadCourses().filter(c=>c.id!==id);saveCourses(courses);savedCourses.value=courses;}
-    function dupCourse(){
-      if(!course.id)return;
-      const dup=JSON.parse(JSON.stringify(course));
-      dup.id=uid();dup.title=(course.title||'Course')+' (Copy)';dup.createdAt=new Date().toISOString();dup.updatedAt=new Date().toISOString();
-      savedCourses.value.push(dup);
-      saveCourses(savedCourses.value);
-      showToast('Course duplicated');
-    }
-    function dupCourseFromDash(c){
-      const dup=JSON.parse(JSON.stringify(c));
-      dup.id=uid();dup.title=(c.title||'Course')+' (Copy)';dup.createdAt=new Date().toISOString();dup.updatedAt=new Date().toISOString();
-      const courses=loadCourses();courses.push(dup);saveCourses(courses);savedCourses.value=courses;
-      showToast('Course duplicated');
-    }
-    const filteredCourses=computed(()=>{
-      let cs=savedCourses.value;
-      if(dashSearch.value)cs=cs.filter(c=>(c.title||'').toLowerCase().includes(dashSearch.value.toLowerCase()));
-      return cs;
-    });
-    const filteredWidgets=computed(()=>WIDGETS.filter(w=>(blkCategory.value==='All'||w.category===blkCategory.value)&&(blkSearch.value===''||w.label.toLowerCase().includes(blkSearch.value.toLowerCase())||w.desc.toLowerCase().includes(blkSearch.value.toLowerCase()))));
 
     // ── AUTO-SAVE ──
     let _saveTimer=null,_saveDot=null;
     watch(()=>JSON.stringify(course),()=>{
       if(view.value!=='builder'||!currentCourseId.value)return;
-      clearTimeout(_saveTimer);clearTimeout(_saveDot);saveStatus.value='saving';
-      _saveTimer=setTimeout(()=>{saveCurrentCourse();saveStatus.value='saved';_saveDot=setTimeout(()=>saveStatus.value='saved',2000)},1500);
+      clearTimeout(_saveTimer);clearTimeout(_saveDot);saveStatus.value='Saving\u2026';
+      _saveTimer=setTimeout(()=>{saveCurrentCourse();saveStatus.value='\u2713 Saved';_saveDot=setTimeout(()=>saveStatus.value='',2000)},1500);
     });
 
     // ── MODULE/LESSON ──
@@ -2522,8 +1940,8 @@ function dropBlock(idx){
       canRedo.value=_redoStack.length>0;
     }
 
-    function addBlockAt(idx){insertAt.value=idx;showToast('Block library active — click a block to insert here');}
-    function confirmAddBlock(type){_pushHist();if(!curLesson.value)return;const b={id:uid(),type,bg:'white',config:defCfg(type)};const insertIdx=typeof insertAt.value==='number'&&insertAt.value>=0&&insertAt.value<=curLesson.value.blocks.length?insertAt.value:curLesson.value.blocks.length;curLesson.value.blocks.splice(insertIdx,0,b);insertAt.value=-1;selBlock.value=b.id;nextTick(()=>{initBlockSortable();const el=document.querySelector('.block-wrap.sel');if(el)el.scrollIntoView({behavior:'smooth',block:'nearest'});});}
+    function addBlockAt(idx){insertAt.value=idx;showAddBlock.value=true;}
+    function confirmAddBlock(type){_pushHist();if(!curLesson.value)return;const b={id:uid(),type,bg:'white',config:defCfg(type)};curLesson.value.blocks.push(b);selBlock.value=b.id;nextTick(()=>{initBlockSortable();const el=document.querySelector('.block-wrap:last-child');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});}
     function delBlock(id){_pushHist();if(!curLesson.value)return;curLesson.value.blocks=curLesson.value.blocks.filter(b=>b.id!==id);if(selBlock.value===id)selBlock.value=null;}
     function dupBlock(id){
       _pushHist();
@@ -2633,12 +2051,7 @@ function addKCQ(block){block.config.questions.push({id:uid(),question:'',type:'m
       cardFlip,activeTab,getActiveTab,setActiveTab,dragType,dropIdx,dawColor,dawRotate,startDrag,endDrag,dropBlock,onQuizTypeChange,tbTitleStyle,tbBodyStyle,
       canUndo,canRedo,undoAction,redoAction,
       getBlockPadding,numPad,selBlockObj,handleImgUpload,handleBannerImgUpload,exportCourseJSON,importCourseJSON,
-      COURSE_TEMPLATES,showTemplates,selectedTemplate,
-      showMoreMenu,dashSearch,dashFilter,dashView,blkSearch,blkCategory,
-      newCourseStep,newCourseMode,showPublish,showCardMenu,
-      filteredCourses,dupCourse,dupCourseFromDash,
-      activeNav,theme,courseSettings,themeVars,filteredWidgets,
-      getBlockIcon,BLOCK_ICONS
+      COURSE_TEMPLATES,showTemplates,selectedTemplate
     };
   }
 });
